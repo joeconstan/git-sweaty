@@ -75,7 +75,7 @@ function buildLegend(colors) {
   return legend;
 }
 
-function buildHeatmapArea(aggregates, year, units, colors) {
+function buildHeatmapArea(aggregates, year, units, colors, type) {
   const heatmapArea = document.createElement("div");
   heatmapArea.className = "heatmap-area";
 
@@ -144,18 +144,29 @@ function buildHeatmapArea(aggregates, year, units, colors) {
     const lvl = level(entry.count || 0, maxCount);
     cell.style.background = colors[lvl];
 
-    const distance = units.distance === "km"
-      ? `${(entry.distance / 1000).toFixed(2)} km`
-      : `${(entry.distance / 1609.344).toFixed(2)} mi`;
-    const elevation = units.elevation === "m"
-      ? `${Math.round(entry.elevation_gain)} m`
-      : `${Math.round(entry.elevation_gain * 3.28084)} ft`;
     const durationMinutes = Math.round((entry.moving_time || 0) / 60);
     const duration = durationMinutes >= 60
       ? `${Math.floor(durationMinutes / 60)}h ${durationMinutes % 60}m`
       : `${durationMinutes}m`;
 
-    const tooltipText = `${dateStr}\n${entry.count} workout${entry.count === 1 ? "" : "s"}\nDistance: ${distance}\nDuration: ${duration}\nElevation: ${elevation}`;
+    const lines = [
+      dateStr,
+      `${entry.count} workout${entry.count === 1 ? "" : "s"}`,
+    ];
+
+    if (type !== "WeightTraining") {
+      const distance = units.distance === "km"
+        ? `${(entry.distance / 1000).toFixed(2)} km`
+        : `${(entry.distance / 1609.344).toFixed(2)} mi`;
+      const elevation = units.elevation === "m"
+        ? `${Math.round(entry.elevation_gain)} m`
+        : `${Math.round(entry.elevation_gain * 3.28084)} ft`;
+      lines.push(`Distance: ${distance}`);
+      lines.push(`Elevation: ${elevation}`);
+    }
+
+    lines.push(`Duration: ${duration}`);
+    const tooltipText = lines.join("\n");
 
     cell.addEventListener("mouseenter", (event) => {
       showTooltip(tooltipText, event.clientX, event.clientY);
@@ -182,7 +193,7 @@ function buildCard(type, year, aggregates, units) {
   card.appendChild(title);
 
   const colors = getColors(type);
-  const heatmapArea = buildHeatmapArea(aggregates, year, units, colors);
+  const heatmapArea = buildHeatmapArea(aggregates, year, units, colors, type);
   card.appendChild(heatmapArea);
   card.appendChild(buildLegend(colors));
 
