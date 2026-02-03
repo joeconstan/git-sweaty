@@ -3,11 +3,11 @@ const GAP = 2;
 const LABEL_LEFT = 36;
 const LABEL_TOP = 20;
 
-const DEFAULT_COLORS = ["#eef2f6", "#cfe6e2", "#9fd0c8", "#5fb5a7", "#2f7f6f"];
+const DEFAULT_COLORS = ["#f1f5f9", "#cfe6df", "#a7d3c8", "#6db8a7", "#3f8b7a"];
 const TYPE_COLORS = {
-  Run: ["#eef2f6", "#d5e6f7", "#a9c7ea", "#6fa0d8", "#2f6fb4"],
-  Ride: ["#eef2f6", "#f5d6b2", "#eebc7f", "#e09449", "#b35b14"],
-  WeightTraining: ["#eef2f6", "#ddd2f5", "#bea7e6", "#9577d1", "#6b44b4"],
+  Run: ["#f1f5f9", "#d9e6f7", "#b6cfee", "#7da7db", "#3a72b8"],
+  Ride: ["#f1f5f9", "#d7efe1", "#a8d8bf", "#6fb494", "#2f7f5d"],
+  WeightTraining: ["#f1f5f9", "#f3d3d3", "#e9a8a8", "#d86e6e", "#b23b3b"],
 };
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -60,6 +60,7 @@ function formatNumber(value, fractionDigits) {
   return new Intl.NumberFormat(undefined, {
     minimumFractionDigits: fractionDigits,
     maximumFractionDigits: fractionDigits,
+    useGrouping: true,
   }).format(value);
 }
 
@@ -85,7 +86,7 @@ function formatElevation(meters, units) {
   return `${formatNumber(Math.round(meters * 3.28084), 0)} ft`;
 }
 
-function buildSummary(payload) {
+function buildSummary(payload, types, years) {
   summary.innerHTML = "";
 
   const totals = {
@@ -98,7 +99,9 @@ function buildSummary(payload) {
   const activeDays = new Set();
 
   Object.entries(payload.aggregates || {}).forEach(([year, yearData]) => {
+    if (!years.includes(Number(year))) return;
     Object.entries(yearData || {}).forEach(([type, entries]) => {
+      if (!types.includes(type)) return;
       if (!typeTotals[type]) {
         typeTotals[type] = { count: 0 };
       }
@@ -137,7 +140,7 @@ function buildSummary(payload) {
     summary.appendChild(el);
   });
 
-  payload.types.forEach((type) => {
+  types.forEach((type) => {
     const typeCard = document.createElement("div");
     typeCard.className = "summary-card";
     const title = document.createElement("div");
@@ -289,8 +292,6 @@ async function init() {
     }
   }
 
-  buildSummary(payload);
-
   const allTypesOption = document.createElement("option");
   allTypesOption.value = "all";
   allTypesOption.textContent = "All types";
@@ -341,6 +342,8 @@ async function init() {
       section.appendChild(list);
       heatmaps.appendChild(section);
     });
+
+    buildSummary(payload, types, years);
   }
 
   typeSelect.addEventListener("change", update);

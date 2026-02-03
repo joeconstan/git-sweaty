@@ -162,6 +162,7 @@
       .heatmap-area {
         position: relative;
         display: inline-block;
+        z-index: 0;
       }
 
       .year-label,
@@ -172,7 +173,7 @@
         color: var(--muted);
         font-size: 10px;
         line-height: 10px;
-        z-index: 2;
+        z-index: 3;
       }
 
       .year-label {
@@ -187,14 +188,14 @@
       }
 
       .day-label {
-        color: #e5e7eb;
+        color: #f1f5f9;
         text-align: right;
         width: 30px;
       }
 
       .grid {
         position: relative;
-        z-index: 1;
+        z-index: 0;
         display: grid;
         grid-auto-flow: column;
         grid-auto-columns: var(--cell);
