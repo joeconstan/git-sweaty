@@ -1,9 +1,9 @@
 {
   "after": 1546300800,
-  "completed": false,
-  "last_run_utc": null,
+  "completed": true,
+  "last_run_utc": "2026-02-03T18:58:23.457696+00:00",
+  "newest_seen_ts": 1770122505,
   "next_before": null,
-  "oldest_seen_ts": null,
-  "newest_seen_ts": null,
+  "oldest_seen_ts": 1546516991,
   "rate_limited": false
 }
