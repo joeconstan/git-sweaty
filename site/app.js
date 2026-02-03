@@ -85,7 +85,7 @@ function formatElevation(meters, units) {
   return `${formatNumber(Math.round(meters * 3.28084), 0)} ft`;
 }
 
-function buildSummary(payload, types, years, showTypeBreakdown, showActiveDays) {
+function buildSummary(payload, types, years, showTypeBreakdown, showActiveDays, hideDistanceElevation) {
   summary.innerHTML = "";
 
   const totals = {
@@ -119,10 +119,18 @@ function buildSummary(payload, types, years, showTypeBreakdown, showActiveDays) 
 
   const cards = [
     { title: "Total Workouts", value: totals.count.toLocaleString() },
-    { title: "Total Distance", value: formatDistance(totals.distance, payload.units || { distance: "mi" }) },
-    { title: "Total Elevation", value: formatElevation(totals.elevation, payload.units || { elevation: "ft" }) },
-    { title: "Total Time", value: formatDuration(totals.moving_time) },
   ];
+  if (!hideDistanceElevation) {
+    cards.push({
+      title: "Total Distance",
+      value: formatDistance(totals.distance, payload.units || { distance: "mi" }),
+    });
+    cards.push({
+      title: "Total Elevation",
+      value: formatElevation(totals.elevation, payload.units || { elevation: "ft" }),
+    });
+  }
+  cards.push({ title: "Total Time", value: formatDuration(totals.moving_time) });
   if (showActiveDays) {
     cards.push({ title: "Active Days", value: activeDays.size.toLocaleString() });
   }
@@ -356,7 +364,8 @@ async function init() {
 
     const showTypeBreakdown = selectedType === "all";
     const showActiveDays = selectedType === "all" && selectedYear === "all";
-    buildSummary(payload, types, years, showTypeBreakdown, showActiveDays);
+    const hideDistanceElevation = selectedType === "WeightTraining";
+    buildSummary(payload, types, years, showTypeBreakdown, showActiveDays, hideDistanceElevation);
   }
 
   typeSelect.addEventListener("change", update);
