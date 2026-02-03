@@ -1,6 +1,6 @@
 const CELL = 12;
 const GAP = 2;
-const GRID_PADDING = 8;
+const GRID_PADDING = 6;
 
 const DEFAULT_COLORS = ["#f3f5f8", "#dfeae4", "#bdd8cf", "#8ebfad", "#5f9f8a"];
 const TYPE_COLORS = {

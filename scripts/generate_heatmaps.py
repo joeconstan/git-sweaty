@@ -181,13 +181,8 @@ def _readme_section(types: List[str], years_desc: List[int]) -> str:
     lines = []
     lines.append("## Heatmaps")
     lines.append("")
-    for activity_type in types:
-        lines.append(f"### {activity_type}")
-        lines.append("")
-        for year in years_desc:
-            path = f"heatmaps/{activity_type}/{year}.svg"
-            lines.append(f"![{activity_type} {year}]({path})")
-        lines.append("")
+    lines.append("Heatmaps are published on the GitHub Pages site linked above.")
+    lines.append("")
     return "\n".join(lines).rstrip() + "\n"
 
 

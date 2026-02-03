@@ -53,6 +53,23 @@
         box-shadow: var(--shadow);
       }
 
+      .header-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .repo-link {
+        color: var(--muted);
+        font-size: 12px;
+        text-decoration: none;
+      }
+
+      .repo-link:hover {
+        color: var(--accent);
+      }
+
       h1 {
         margin: 0 0 8px;
         font-size: 28px;
@@ -160,8 +177,8 @@
       }
 
       .heatmap-area {
-        display: grid;
-        grid-template-columns: 36px 1fr;
+        display: inline-grid;
+        grid-template-columns: 36px max-content;
         grid-template-rows: 18px auto;
         column-gap: 8px;
         row-gap: 0;
@@ -189,6 +206,7 @@
         grid-column: 2;
         grid-row: 1;
         height: 18px;
+        width: max-content;
       }
 
       .month-label {
@@ -214,12 +232,13 @@
       .grid {
         grid-column: 2;
         grid-row: 2;
+        width: max-content;
         display: grid;
         grid-auto-flow: column;
         grid-auto-columns: var(--cell);
         grid-template-rows: repeat(7, var(--cell));
         gap: var(--gap);
-        padding: 8px;
+        padding: 6px 4px 6px 6px;
         border-radius: 12px;
         background: rgba(15, 23, 42, 0.8);
       }
@@ -277,7 +296,10 @@
   <body>
     <div class="app">
       <header>
-        <h1>Workout Heatmaps</h1>
+        <div class="header-top">
+          <h1>Workout Heatmaps</h1>
+          <a class="repo-link" href="https://github.com/aspain/git-sweaty">github.com/aspain/git-sweaty</a>
+        </div>
         <div class="controls">
           <select id="typeSelect"></select>
           <select id="yearSelect"></select>
