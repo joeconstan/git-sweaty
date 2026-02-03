@@ -28,11 +28,11 @@
 <rect x="0" y="42" width="12" height="12" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
 <rect x="0" y="56" width="12" height="12" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
 <rect x="0" y="70" width="12" height="12" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
-<a href="https://www.strava.com/activities/8321037736" target="_blank"><rect x="0" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-01-01"><title>2023-01-01
-1 workout
+<rect x="0" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-01-01"><title>2023-01-01
+0 workouts
 Distance: 0.00 mi
-Duration: 25m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="14" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-01-02"><title>2023-01-02
 0 workouts
 Distance: 0.00 mi
@@ -43,11 +43,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8336656457" target="_blank"><rect x="14" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-01-04"><title>2023-01-04
-1 workout
+<rect x="14" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-01-04"><title>2023-01-04
+0 workouts
 Distance: 0.00 mi
-Duration: 26m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="14" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-01-05"><title>2023-01-05
 0 workouts
 Distance: 0.00 mi
@@ -68,21 +68,21 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8363554085" target="_blank"><rect x="28" y="0" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-01-09"><title>2023-01-09
-1 workout
+<rect x="28" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-01-09"><title>2023-01-09
+0 workouts
 Distance: 0.00 mi
-Duration: 29m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="28" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-01-10"><title>2023-01-10
 0 workouts
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8374388370" target="_blank"><rect x="28" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-01-11"><title>2023-01-11
-1 workout
+<rect x="28" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-01-11"><title>2023-01-11
+0 workouts
 Distance: 0.00 mi
-Duration: 23m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="28" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-01-12"><title>2023-01-12
 0 workouts
 Distance: 0.00 mi
@@ -118,11 +118,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8417280515" target="_blank"><rect x="42" y="42" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-01-19"><title>2023-01-19
-1 workout
+<rect x="42" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-01-19"><title>2023-01-19
+0 workouts
 Distance: 0.00 mi
-Duration: 28m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="42" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-01-20"><title>2023-01-20
 0 workouts
 Distance: 0.00 mi
@@ -148,11 +148,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8449639034" target="_blank"><rect x="56" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-01-25"><title>2023-01-25
-1 workout
+<rect x="56" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-01-25"><title>2023-01-25
+0 workouts
 Distance: 0.00 mi
-Duration: 32m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="56" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-01-26"><title>2023-01-26
 0 workouts
 Distance: 0.00 mi
@@ -168,11 +168,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8472911137" target="_blank"><rect x="56" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-01-29"><title>2023-01-29
-1 workout
+<rect x="56" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-01-29"><title>2023-01-29
+0 workouts
 Distance: 0.00 mi
-Duration: 23m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="70" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-01-30"><title>2023-01-30
 0 workouts
 Distance: 0.00 mi
@@ -183,11 +183,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8488429603" target="_blank"><rect x="70" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-02-01"><title>2023-02-01
-1 workout
+<rect x="70" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-01"><title>2023-02-01
+0 workouts
 Distance: 0.00 mi
-Duration: 27m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="70" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-02"><title>2023-02-02
 0 workouts
 Distance: 0.00 mi
@@ -203,11 +203,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8509781546" target="_blank"><rect x="70" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-02-05"><title>2023-02-05
-1 workout
+<rect x="70" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-05"><title>2023-02-05
+0 workouts
 Distance: 0.00 mi
-Duration: 26m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="84" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-06"><title>2023-02-06
 0 workouts
 Distance: 0.00 mi
@@ -218,21 +218,21 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8526347966" target="_blank"><rect x="84" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-02-08"><title>2023-02-08
-1 workout
+<rect x="84" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-08"><title>2023-02-08
+0 workouts
 Distance: 0.00 mi
-Duration: 26m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="84" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-09"><title>2023-02-09
 0 workouts
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8537074221" target="_blank"><rect x="84" y="56" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-02-10"><title>2023-02-10
-1 workout
+<rect x="84" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-10"><title>2023-02-10
+0 workouts
 Distance: 0.00 mi
-Duration: 23m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="84" y="70" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-11"><title>2023-02-11
 0 workouts
 Distance: 0.00 mi
@@ -248,11 +248,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8559596716" target="_blank"><rect x="98" y="14" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-02-14"><title>2023-02-14
-1 workout
+<rect x="98" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-14"><title>2023-02-14
+0 workouts
 Distance: 0.00 mi
-Duration: 25m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="98" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-15"><title>2023-02-15
 0 workouts
 Distance: 0.00 mi
@@ -268,11 +268,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8581857579" target="_blank"><rect x="98" y="70" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-02-18"><title>2023-02-18
-1 workout
+<rect x="98" y="70" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-18"><title>2023-02-18
+0 workouts
 Distance: 0.00 mi
-Duration: 23m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="98" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-19"><title>2023-02-19
 0 workouts
 Distance: 0.00 mi
@@ -283,11 +283,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8598424997" target="_blank"><rect x="112" y="14" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-02-21"><title>2023-02-21
-1 workout
+<rect x="112" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-21"><title>2023-02-21
+0 workouts
 Distance: 0.00 mi
-Duration: 42m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="112" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-22"><title>2023-02-22
 0 workouts
 Distance: 0.00 mi
@@ -298,11 +298,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8614416647" target="_blank"><rect x="112" y="56" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-02-24"><title>2023-02-24
-1 workout
+<rect x="112" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-24"><title>2023-02-24
+0 workouts
 Distance: 0.00 mi
-Duration: 22m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="112" y="70" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-25"><title>2023-02-25
 0 workouts
 Distance: 0.00 mi
@@ -313,11 +313,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8630630869" target="_blank"><rect x="126" y="0" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-02-27"><title>2023-02-27
-1 workout
+<rect x="126" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-27"><title>2023-02-27
+0 workouts
 Distance: 0.00 mi
-Duration: 29m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="126" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-02-28"><title>2023-02-28
 0 workouts
 Distance: 0.00 mi
@@ -343,11 +343,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8664450704" target="_blank"><rect x="126" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-03-05"><title>2023-03-05
-1 workout
+<rect x="126" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-03-05"><title>2023-03-05
+0 workouts
 Distance: 0.00 mi
-Duration: 29m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="140" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-03-06"><title>2023-03-06
 0 workouts
 Distance: 0.00 mi
@@ -358,11 +358,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8680730218" target="_blank"><rect x="140" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-03-08"><title>2023-03-08
-1 workout
+<rect x="140" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-03-08"><title>2023-03-08
+0 workouts
 Distance: 0.00 mi
-Duration: 31m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="140" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-03-09"><title>2023-03-09
 0 workouts
 Distance: 0.00 mi
@@ -418,11 +418,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8746605661" target="_blank"><rect x="168" y="0" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-03-20"><title>2023-03-20
-1 workout
+<rect x="168" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-03-20"><title>2023-03-20
+0 workouts
 Distance: 0.00 mi
-Duration: 30m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="168" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-03-21"><title>2023-03-21
 0 workouts
 Distance: 0.00 mi
@@ -433,11 +433,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8763754312" target="_blank"><rect x="168" y="42" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-03-23"><title>2023-03-23
-1 workout
+<rect x="168" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-03-23"><title>2023-03-23
+0 workouts
 Distance: 0.00 mi
-Duration: 21m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="168" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-03-24"><title>2023-03-24
 0 workouts
 Distance: 0.00 mi
@@ -448,11 +448,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8780625111" target="_blank"><rect x="168" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-03-26"><title>2023-03-26
-1 workout
+<rect x="168" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-03-26"><title>2023-03-26
+0 workouts
 Distance: 0.00 mi
-Duration: 37m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="182" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-03-27"><title>2023-03-27
 0 workouts
 Distance: 0.00 mi
@@ -468,11 +468,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8802771182" target="_blank"><rect x="182" y="42" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-03-30"><title>2023-03-30
-1 workout
+<rect x="182" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-03-30"><title>2023-03-30
+0 workouts
 Distance: 0.00 mi
-Duration: 25m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="182" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-03-31"><title>2023-03-31
 0 workouts
 Distance: 0.00 mi
@@ -488,11 +488,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8824973328" target="_blank"><rect x="196" y="0" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-04-03"><title>2023-04-03
-1 workout
+<rect x="196" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-04-03"><title>2023-04-03
+0 workouts
 Distance: 0.00 mi
-Duration: 28m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="196" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-04-04"><title>2023-04-04
 0 workouts
 Distance: 0.00 mi
@@ -513,11 +513,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8854031997" target="_blank"><rect x="196" y="70" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-04-08"><title>2023-04-08
-1 workout
+<rect x="196" y="70" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-04-08"><title>2023-04-08
+0 workouts
 Distance: 0.00 mi
-Duration: 24m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="196" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-04-09"><title>2023-04-09
 0 workouts
 Distance: 0.00 mi
@@ -553,11 +553,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8901130468" target="_blank"><rect x="210" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-04-16"><title>2023-04-16
-1 workout
+<rect x="210" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-04-16"><title>2023-04-16
+0 workouts
 Distance: 0.00 mi
-Duration: 27m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="224" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-04-17"><title>2023-04-17
 0 workouts
 Distance: 0.00 mi
@@ -588,21 +588,21 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8943332448" target="_blank"><rect x="224" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-04-23"><title>2023-04-23
-1 workout
+<rect x="224" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-04-23"><title>2023-04-23
+0 workouts
 Distance: 0.00 mi
-Duration: 32m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="238" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-04-24"><title>2023-04-24
 0 workouts
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8954326791" target="_blank"><rect x="238" y="14" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-04-25"><title>2023-04-25
-1 workout
+<rect x="238" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-04-25"><title>2023-04-25
+0 workouts
 Distance: 0.00 mi
-Duration: 21m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="238" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-04-26"><title>2023-04-26
 0 workouts
 Distance: 0.00 mi
@@ -613,11 +613,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/8973488635" target="_blank"><rect x="238" y="56" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-04-28"><title>2023-04-28
-1 workout
+<rect x="238" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-04-28"><title>2023-04-28
+0 workouts
 Distance: 0.00 mi
-Duration: 25m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="238" y="70" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-04-29"><title>2023-04-29
 0 workouts
 Distance: 0.00 mi
@@ -638,11 +638,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9002887943" target="_blank"><rect x="252" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-05-03"><title>2023-05-03
-1 workout
+<rect x="252" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-05-03"><title>2023-05-03
+0 workouts
 Distance: 0.00 mi
-Duration: 28m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="252" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-05-04"><title>2023-05-04
 0 workouts
 Distance: 0.00 mi
@@ -663,11 +663,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9033643576" target="_blank"><rect x="266" y="0" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-05-08"><title>2023-05-08
-1 workout
+<rect x="266" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-05-08"><title>2023-05-08
+0 workouts
 Distance: 0.00 mi
-Duration: 22m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="266" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-05-09"><title>2023-05-09
 0 workouts
 Distance: 0.00 mi
@@ -708,11 +708,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9089542582" target="_blank"><rect x="280" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-05-17"><title>2023-05-17
-1 workout
+<rect x="280" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-05-17"><title>2023-05-17
+0 workouts
 Distance: 0.00 mi
-Duration: 26m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="280" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-05-18"><title>2023-05-18
 0 workouts
 Distance: 0.00 mi
@@ -723,11 +723,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9106215855" target="_blank"><rect x="280" y="70" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-05-20"><title>2023-05-20
-1 workout
+<rect x="280" y="70" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-05-20"><title>2023-05-20
+0 workouts
 Distance: 0.00 mi
-Duration: 31m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="280" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-05-21"><title>2023-05-21
 0 workouts
 Distance: 0.00 mi
@@ -738,11 +738,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9125635925" target="_blank"><rect x="294" y="14" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-05-23"><title>2023-05-23
-1 workout
+<rect x="294" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-05-23"><title>2023-05-23
+0 workouts
 Distance: 0.00 mi
-Duration: 25m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="294" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-05-24"><title>2023-05-24
 0 workouts
 Distance: 0.00 mi
@@ -768,11 +768,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9163303658" target="_blank"><rect x="308" y="0" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-05-29"><title>2023-05-29
-1 workout
+<rect x="308" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-05-29"><title>2023-05-29
+0 workouts
 Distance: 0.00 mi
-Duration: 48m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="308" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-05-30"><title>2023-05-30
 0 workouts
 Distance: 0.00 mi
@@ -788,11 +788,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9188207843" target="_blank"><rect x="308" y="56" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-06-02"><title>2023-06-02
-1 workout
+<rect x="308" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-06-02"><title>2023-06-02
+0 workouts
 Distance: 0.00 mi
-Duration: 25m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="308" y="70" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-06-03"><title>2023-06-03
 0 workouts
 Distance: 0.00 mi
@@ -808,11 +808,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9213166772" target="_blank"><rect x="322" y="14" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-06-06"><title>2023-06-06
-1 workout
+<rect x="322" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-06-06"><title>2023-06-06
+0 workouts
 Distance: 0.00 mi
-Duration: 26m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="322" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-06-07"><title>2023-06-07
 0 workouts
 Distance: 0.00 mi
@@ -833,11 +833,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9245519572" target="_blank"><rect x="322" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-06-11"><title>2023-06-11
-1 workout
+<rect x="322" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-06-11"><title>2023-06-11
+0 workouts
 Distance: 0.00 mi
-Duration: 24m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="336" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-06-12"><title>2023-06-12
 0 workouts
 Distance: 0.00 mi
@@ -853,11 +853,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9270553051" target="_blank"><rect x="336" y="42" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-06-15"><title>2023-06-15
-1 workout
+<rect x="336" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-06-15"><title>2023-06-15
+0 workouts
 Distance: 0.00 mi
-Duration: 22m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="336" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-06-16"><title>2023-06-16
 0 workouts
 Distance: 0.00 mi
@@ -888,11 +888,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9313327630" target="_blank"><rect x="350" y="42" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-06-22"><title>2023-06-22
-1 workout
+<rect x="350" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-06-22"><title>2023-06-22
+0 workouts
 Distance: 0.00 mi
-Duration: 1h 1m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="350" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-06-23"><title>2023-06-23
 0 workouts
 Distance: 0.00 mi
@@ -903,11 +903,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9333019269" target="_blank"><rect x="350" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-06-25"><title>2023-06-25
-1 workout
+<rect x="350" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-06-25"><title>2023-06-25
+0 workouts
 Distance: 0.00 mi
-Duration: 35m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="364" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-06-26"><title>2023-06-26
 0 workouts
 Distance: 0.00 mi
@@ -918,11 +918,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9349739810" target="_blank"><rect x="364" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-06-28"><title>2023-06-28
-1 workout
+<rect x="364" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-06-28"><title>2023-06-28
+0 workouts
 Distance: 0.00 mi
-Duration: 19m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="364" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-06-29"><title>2023-06-29
 0 workouts
 Distance: 0.00 mi
@@ -938,11 +938,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9374414972" target="_blank"><rect x="364" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-07-02"><title>2023-07-02
-1 workout
+<rect x="364" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-07-02"><title>2023-07-02
+0 workouts
 Distance: 0.00 mi
-Duration: 35m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="378" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-07-03"><title>2023-07-03
 0 workouts
 Distance: 0.00 mi
@@ -953,11 +953,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9392676189" target="_blank"><rect x="378" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-07-05"><title>2023-07-05
-1 workout
+<rect x="378" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-07-05"><title>2023-07-05
+0 workouts
 Distance: 0.00 mi
-Duration: 24m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="378" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-07-06"><title>2023-07-06
 0 workouts
 Distance: 0.00 mi
@@ -978,11 +978,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9423772597" target="_blank"><rect x="392" y="0" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-07-10"><title>2023-07-10
-1 workout
+<rect x="392" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-07-10"><title>2023-07-10
+0 workouts
 Distance: 0.00 mi
-Duration: 24m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="392" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-07-11"><title>2023-07-11
 0 workouts
 Distance: 0.00 mi
@@ -998,21 +998,21 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9449079987" target="_blank"><rect x="392" y="56" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-07-14"><title>2023-07-14
-1 workout
+<rect x="392" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-07-14"><title>2023-07-14
+0 workouts
 Distance: 0.00 mi
-Duration: 22m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="392" y="70" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-07-15"><title>2023-07-15
 0 workouts
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9461635026" target="_blank"><rect x="392" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-07-16"><title>2023-07-16
-1 workout
+<rect x="392" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-07-16"><title>2023-07-16
+0 workouts
 Distance: 0.00 mi
-Duration: 30m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="406" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-07-17"><title>2023-07-17
 0 workouts
 Distance: 0.00 mi
@@ -1023,11 +1023,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9480802525" target="_blank"><rect x="406" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-07-19"><title>2023-07-19
-1 workout
+<rect x="406" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-07-19"><title>2023-07-19
+0 workouts
 Distance: 0.00 mi
-Duration: 40m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="406" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-07-20"><title>2023-07-20
 0 workouts
 Distance: 0.00 mi
@@ -1043,11 +1043,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9506004073" target="_blank"><rect x="406" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-07-23"><title>2023-07-23
-1 workout
+<rect x="406" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-07-23"><title>2023-07-23
+0 workouts
 Distance: 0.00 mi
-Duration: 29m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="420" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-07-24"><title>2023-07-24
 0 workouts
 Distance: 0.00 mi
@@ -1058,11 +1058,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9524683507" target="_blank"><rect x="420" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-07-26"><title>2023-07-26
-1 workout
+<rect x="420" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-07-26"><title>2023-07-26
+0 workouts
 Distance: 0.00 mi
-Duration: 37m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="420" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-07-27"><title>2023-07-27
 0 workouts
 Distance: 0.00 mi
@@ -1083,11 +1083,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9555302200" target="_blank"><rect x="434" y="0" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-07-31"><title>2023-07-31
-1 workout
+<rect x="434" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-07-31"><title>2023-07-31
+0 workouts
 Distance: 0.00 mi
-Duration: 41m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="434" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-08-01"><title>2023-08-01
 0 workouts
 Distance: 0.00 mi
@@ -1103,11 +1103,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9580907901" target="_blank"><rect x="434" y="56" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-08-04"><title>2023-08-04
-1 workout
+<rect x="434" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-08-04"><title>2023-08-04
+0 workouts
 Distance: 0.00 mi
-Duration: 29m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="434" y="70" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-08-05"><title>2023-08-05
 0 workouts
 Distance: 0.00 mi
@@ -1118,11 +1118,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9599165938" target="_blank"><rect x="448" y="0" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-08-07"><title>2023-08-07
-1 workout
+<rect x="448" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-08-07"><title>2023-08-07
+0 workouts
 Distance: 0.00 mi
-Duration: 20m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="448" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-08-08"><title>2023-08-08
 0 workouts
 Distance: 0.00 mi
@@ -1148,11 +1148,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9639473136" target="_blank"><rect x="448" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-08-13"><title>2023-08-13
-1 workout
+<rect x="448" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-08-13"><title>2023-08-13
+0 workouts
 Distance: 0.00 mi
-Duration: 27m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="462" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-08-14"><title>2023-08-14
 0 workouts
 Distance: 0.00 mi
@@ -1163,11 +1163,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9658719553" target="_blank"><rect x="462" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-08-16"><title>2023-08-16
-1 workout
+<rect x="462" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-08-16"><title>2023-08-16
+0 workouts
 Distance: 0.00 mi
-Duration: 19m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="462" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-08-17"><title>2023-08-17
 0 workouts
 Distance: 0.00 mi
@@ -1178,11 +1178,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9679128968" target="_blank"><rect x="462" y="70" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-08-19"><title>2023-08-19
-1 workout
+<rect x="462" y="70" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-08-19"><title>2023-08-19
+0 workouts
 Distance: 0.00 mi
-Duration: 34m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="462" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-08-20"><title>2023-08-20
 0 workouts
 Distance: 0.00 mi
@@ -1198,11 +1198,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9704990926" target="_blank"><rect x="476" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-08-23"><title>2023-08-23
-1 workout
+<rect x="476" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-08-23"><title>2023-08-23
+0 workouts
 Distance: 0.00 mi
-Duration: 30m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="476" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-08-24"><title>2023-08-24
 0 workouts
 Distance: 0.00 mi
@@ -1218,11 +1218,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9730225969" target="_blank"><rect x="476" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-08-27"><title>2023-08-27
-1 workout
+<rect x="476" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-08-27"><title>2023-08-27
+0 workouts
 Distance: 0.00 mi
-Duration: 25m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="490" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-08-28"><title>2023-08-28
 0 workouts
 Distance: 0.00 mi
@@ -1238,11 +1238,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9755402439" target="_blank"><rect x="490" y="42" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-08-31"><title>2023-08-31
-1 workout
+<rect x="490" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-08-31"><title>2023-08-31
+0 workouts
 Distance: 0.00 mi
-Duration: 28m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="490" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-09-01"><title>2023-09-01
 0 workouts
 Distance: 0.00 mi
@@ -1263,11 +1263,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9787771632" target="_blank"><rect x="504" y="14" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-09-05"><title>2023-09-05
-1 workout
+<rect x="504" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-09-05"><title>2023-09-05
+0 workouts
 Distance: 0.00 mi
-Duration: 25m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="504" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-09-06"><title>2023-09-06
 0 workouts
 Distance: 0.00 mi
@@ -1313,11 +1313,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9853524017" target="_blank"><rect x="518" y="56" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-09-15"><title>2023-09-15
-1 workout
+<rect x="518" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-09-15"><title>2023-09-15
+0 workouts
 Distance: 0.00 mi
-Duration: 23m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="518" y="70" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-09-16"><title>2023-09-16
 0 workouts
 Distance: 0.00 mi
@@ -1328,21 +1328,21 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9874631548" target="_blank"><rect x="532" y="0" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-09-18"><title>2023-09-18
-1 workout
+<rect x="532" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-09-18"><title>2023-09-18
+0 workouts
 Distance: 0.00 mi
-Duration: 25m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="532" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-09-19"><title>2023-09-19
 0 workouts
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9885784613" target="_blank"><rect x="532" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-09-20"><title>2023-09-20
-1 workout
+<rect x="532" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-09-20"><title>2023-09-20
+0 workouts
 Distance: 0.00 mi
-Duration: 24m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="532" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-09-21"><title>2023-09-21
 0 workouts
 Distance: 0.00 mi
@@ -1363,11 +1363,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9917049143" target="_blank"><rect x="546" y="0" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-09-25"><title>2023-09-25
-1 workout
+<rect x="546" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-09-25"><title>2023-09-25
+0 workouts
 Distance: 0.00 mi
-Duration: 26m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="546" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-09-26"><title>2023-09-26
 0 workouts
 Distance: 0.00 mi
@@ -1378,11 +1378,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9936790918" target="_blank"><rect x="546" y="42" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-09-28"><title>2023-09-28
-1 workout
+<rect x="546" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-09-28"><title>2023-09-28
+0 workouts
 Distance: 0.00 mi
-Duration: 38m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="546" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-09-29"><title>2023-09-29
 0 workouts
 Distance: 0.00 mi
@@ -1398,11 +1398,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/9961454597" target="_blank"><rect x="560" y="0" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-10-02"><title>2023-10-02
-1 workout
+<rect x="560" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-10-02"><title>2023-10-02
+0 workouts
 Distance: 0.00 mi
-Duration: 22m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="560" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-10-03"><title>2023-10-03
 0 workouts
 Distance: 0.00 mi
@@ -1428,11 +1428,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10000461608" target="_blank"><rect x="560" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-10-08"><title>2023-10-08
-1 workout
+<rect x="560" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-10-08"><title>2023-10-08
+0 workouts
 Distance: 0.00 mi
-Duration: 27m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="574" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-10-09"><title>2023-10-09
 0 workouts
 Distance: 0.00 mi
@@ -1473,11 +1473,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10054893236" target="_blank"><rect x="588" y="14" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-10-17"><title>2023-10-17
-1 workout
+<rect x="588" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-10-17"><title>2023-10-17
+0 workouts
 Distance: 0.00 mi
-Duration: 32m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="588" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-10-18"><title>2023-10-18
 0 workouts
 Distance: 0.00 mi
@@ -1508,11 +1508,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10095931643" target="_blank"><rect x="602" y="14" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-10-24"><title>2023-10-24
-1 workout
+<rect x="602" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-10-24"><title>2023-10-24
+0 workouts
 Distance: 0.00 mi
-Duration: 31m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="602" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-10-25"><title>2023-10-25
 0 workouts
 Distance: 0.00 mi
@@ -1523,11 +1523,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10113044609" target="_blank"><rect x="602" y="56" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-10-27"><title>2023-10-27
-1 workout
+<rect x="602" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-10-27"><title>2023-10-27
+0 workouts
 Distance: 0.00 mi
-Duration: 26m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="602" y="70" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-10-28"><title>2023-10-28
 0 workouts
 Distance: 0.00 mi
@@ -1538,11 +1538,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10130302720" target="_blank"><rect x="616" y="0" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-10-30"><title>2023-10-30
-1 workout
+<rect x="616" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-10-30"><title>2023-10-30
+0 workouts
 Distance: 0.00 mi
-Duration: 28m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="616" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-10-31"><title>2023-10-31
 0 workouts
 Distance: 0.00 mi
@@ -1553,11 +1553,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10147473778" target="_blank"><rect x="616" y="42" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-11-02"><title>2023-11-02
-1 workout
+<rect x="616" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-02"><title>2023-11-02
+0 workouts
 Distance: 0.00 mi
-Duration: 31m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="616" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-03"><title>2023-11-03
 0 workouts
 Distance: 0.00 mi
@@ -1568,11 +1568,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10165082329" target="_blank"><rect x="616" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-11-05"><title>2023-11-05
-1 workout
+<rect x="616" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-05"><title>2023-11-05
+0 workouts
 Distance: 0.00 mi
-Duration: 29m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="630" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-06"><title>2023-11-06
 0 workouts
 Distance: 0.00 mi
@@ -1583,11 +1583,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10182570707" target="_blank"><rect x="630" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-11-08"><title>2023-11-08
-1 workout
+<rect x="630" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-08"><title>2023-11-08
+0 workouts
 Distance: 0.00 mi
-Duration: 27m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="630" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-09"><title>2023-11-09
 0 workouts
 Distance: 0.00 mi
@@ -1598,11 +1598,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10199732255" target="_blank"><rect x="630" y="70" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-11-11"><title>2023-11-11
-1 workout
+<rect x="630" y="70" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-11"><title>2023-11-11
+0 workouts
 Distance: 0.00 mi
-Duration: 27m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="630" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-12"><title>2023-11-12
 0 workouts
 Distance: 0.00 mi
@@ -1613,11 +1613,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10216733023" target="_blank"><rect x="644" y="14" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-11-14"><title>2023-11-14
-1 workout
+<rect x="644" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-14"><title>2023-11-14
+0 workouts
 Distance: 0.00 mi
-Duration: 28m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="644" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-15"><title>2023-11-15
 0 workouts
 Distance: 0.00 mi
@@ -1628,11 +1628,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10233914571" target="_blank"><rect x="644" y="56" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-11-17"><title>2023-11-17
-1 workout
+<rect x="644" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-17"><title>2023-11-17
+0 workouts
 Distance: 0.00 mi
-Duration: 26m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="644" y="70" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-18"><title>2023-11-18
 0 workouts
 Distance: 0.00 mi
@@ -1643,11 +1643,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10251147999" target="_blank"><rect x="658" y="0" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-11-20"><title>2023-11-20
-1 workout
+<rect x="658" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-20"><title>2023-11-20
+0 workouts
 Distance: 0.00 mi
-Duration: 27m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="658" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-21"><title>2023-11-21
 0 workouts
 Distance: 0.00 mi
@@ -1658,11 +1658,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10268602633" target="_blank"><rect x="658" y="42" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-11-23"><title>2023-11-23
-1 workout
+<rect x="658" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-23"><title>2023-11-23
+0 workouts
 Distance: 0.00 mi
-Duration: 38m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="658" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-24"><title>2023-11-24
 0 workouts
 Distance: 0.00 mi
@@ -1673,11 +1673,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10285224504" target="_blank"><rect x="658" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-11-26"><title>2023-11-26
-1 workout
+<rect x="658" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-26"><title>2023-11-26
+0 workouts
 Distance: 0.00 mi
-Duration: 5m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="672" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-27"><title>2023-11-27
 0 workouts
 Distance: 0.00 mi
@@ -1688,11 +1688,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10302450099" target="_blank"><rect x="672" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-11-29"><title>2023-11-29
-1 workout
+<rect x="672" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-29"><title>2023-11-29
+0 workouts
 Distance: 0.00 mi
-Duration: 26m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="672" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-11-30"><title>2023-11-30
 0 workouts
 Distance: 0.00 mi
@@ -1708,11 +1708,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10323004580" target="_blank"><rect x="672" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-12-03"><title>2023-12-03
-1 workout
+<rect x="672" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-12-03"><title>2023-12-03
+0 workouts
 Distance: 0.00 mi
-Duration: 30m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="686" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-12-04"><title>2023-12-04
 0 workouts
 Distance: 0.00 mi
@@ -1723,11 +1723,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10337920008" target="_blank"><rect x="686" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-12-06"><title>2023-12-06
-1 workout
+<rect x="686" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-12-06"><title>2023-12-06
+0 workouts
 Distance: 0.00 mi
-Duration: 26m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="686" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-12-07"><title>2023-12-07
 0 workouts
 Distance: 0.00 mi
@@ -1743,11 +1743,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10359319497" target="_blank"><rect x="686" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-12-10"><title>2023-12-10
-1 workout
+<rect x="686" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-12-10"><title>2023-12-10
+0 workouts
 Distance: 0.00 mi
-Duration: 34m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="700" y="0" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-12-11"><title>2023-12-11
 0 workouts
 Distance: 0.00 mi
@@ -1758,11 +1758,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10373437026" target="_blank"><rect x="700" y="28" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-12-13"><title>2023-12-13
-1 workout
+<rect x="700" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-12-13"><title>2023-12-13
+0 workouts
 Distance: 0.00 mi
-Duration: 35m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="700" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-12-14"><title>2023-12-14
 0 workouts
 Distance: 0.00 mi
@@ -1773,11 +1773,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10389797570" target="_blank"><rect x="700" y="70" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-12-16"><title>2023-12-16
-1 workout
+<rect x="700" y="70" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-12-16"><title>2023-12-16
+0 workouts
 Distance: 0.00 mi
-Duration: 27m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="700" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-12-17"><title>2023-12-17
 0 workouts
 Distance: 0.00 mi
@@ -1798,11 +1798,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10415089995" target="_blank"><rect x="714" y="42" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-12-21"><title>2023-12-21
-1 workout
+<rect x="714" y="42" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-12-21"><title>2023-12-21
+0 workouts
 Distance: 0.00 mi
-Duration: 23m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="714" y="56" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-12-22"><title>2023-12-22
 0 workouts
 Distance: 0.00 mi
@@ -1823,11 +1823,11 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10439868725" target="_blank"><rect x="728" y="14" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-12-26"><title>2023-12-26
-1 workout
+<rect x="728" y="14" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-12-26"><title>2023-12-26
+0 workouts
 Distance: 0.00 mi
-Duration: 56m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 <rect x="728" y="28" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-12-27"><title>2023-12-27
 0 workouts
 Distance: 0.00 mi
@@ -1848,10 +1848,10 @@ Elevation: 0 ft</title></rect>
 Distance: 0.00 mi
 Duration: 0m
 Elevation: 0 ft</title></rect>
-<a href="https://www.strava.com/activities/10468685537" target="_blank"><rect x="728" y="84" width="12" height="12" fill="#b66565" stroke="#ffffff" stroke-width="1" data-date="2023-12-31"><title>2023-12-31
-1 workout
+<rect x="728" y="84" width="12" height="12" fill="#f3f5f8" stroke="#ffffff" stroke-width="1" data-date="2023-12-31"><title>2023-12-31
+0 workouts
 Distance: 0.00 mi
-Duration: 27m
-Elevation: 0 ft</title></rect></a>
+Duration: 0m
+Elevation: 0 ft</title></rect>
 </g>
 </svg>
