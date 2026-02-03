@@ -41,8 +41,8 @@ Copy the `refresh_token` from the response.
 Go to **Actions → Sync Strava Heatmaps → Run workflow**.
 
 This will:
-- sync raw activities into `activities/raw/`
-- normalize into `data/activities_normalized.json`
+- sync raw activities into `activities/raw/` (local-only; not committed)
+- normalize + merge into `data/activities_normalized.json` (persisted history)
 - aggregate into `data/daily_aggregates.json`
 - generate SVGs in `heatmaps/`
 - update the README heatmap section
