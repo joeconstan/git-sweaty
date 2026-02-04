@@ -362,11 +362,7 @@ function buildCard(type, year, aggregates, units, options = {}) {
     moving_time: 0,
     elevation: 0,
   };
-  const activeDays = new Set();
-  Object.entries(aggregates || {}).forEach(([dateStr, entry]) => {
-    if ((entry.count || 0) > 0) {
-      activeDays.add(dateStr);
-    }
+  Object.entries(aggregates || {}).forEach(([, entry]) => {
     totals.count += entry.count || 0;
     totals.distance += entry.distance || 0;
     totals.moving_time += entry.moving_time || 0;
