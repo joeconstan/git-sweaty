@@ -49,6 +49,11 @@
         gap: 24px;
       }
 
+      body.stats-page {
+        --cell: 18px;
+        --gap: 3px;
+      }
+
       .side-nav {
         position: fixed;
         left: 20px;
@@ -264,7 +269,7 @@
 
       .stat-label {
         font-family: "JetBrains Mono", monospace;
-        font-size: 10px;
+        font-size: 12px;
         color: #f1f5f9;
         text-align: center;
         height: 12px;
@@ -331,6 +336,15 @@
         width: 30px;
       }
 
+      body.stats-page .day-label,
+      body.stats-page .month-label {
+        font-size: 11px;
+      }
+
+      body.stats-page .day-label {
+        width: 40px;
+      }
+
       .cell {
         width: var(--cell);
         height: var(--cell);
@@ -394,6 +408,10 @@
           --grid-pad-bottom: 4px;
           --grid-pad-left: 4px;
         }
+        body.stats-page {
+          --cell: 14px;
+          --gap: 3px;
+        }
         body {
           padding: 24px 12px;
         }
@@ -450,10 +468,14 @@
           --cell: 9px;
           --gap: 2px;
         }
+        body.stats-page {
+          --cell: 12px;
+          --gap: 2px;
+        }
       }
     </style>
   </head>
-  <body>
+  <body class="stats-page">
     <nav class="side-nav">
       <a class="nav-link" href="index.html">Heatmaps</a>
       <a class="nav-link active" href="stats.html">More Stats</a>
@@ -464,10 +486,8 @@
           <div id="updated" class="updated"></div>
           <h1>More Workout Stats</h1>
           <div class="button-row" id="typeButtons"></div>
-          <div class="button-row" id="yearButtons"></div>
           <div class="controls">
             <select id="typeSelect"></select>
-            <select id="yearSelect"></select>
           </div>
           <a class="repo-link" href="https://github.com/aspain/git-sweaty">github.com/aspain/git-sweaty</a>
         </div>
@@ -479,6 +499,6 @@
 
     <div id="tooltip" class="tooltip"></div>
 
-    <script src="app.js?v=8"></script>
+    <script src="app.js?v=9"></script>
   </body>
 </html>

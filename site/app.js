@@ -5,6 +5,7 @@ const TYPE_COLORS = {
   WeightTraining: ["#1f2937", "#1f2937", "#1f2937", "#1f2937", "#ff71ce"],
 };
 const MULTI_TYPE_COLOR = "#b967ff";
+const STAT_HEAT_COLOR = "#05ffa1";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -19,6 +20,7 @@ const tooltip = document.getElementById("tooltip");
 const summary = document.getElementById("summary");
 const updated = document.getElementById("updated");
 const isTouch = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+const isStatsPage = Boolean(stats) && !heatmaps;
 
 function readCssVar(name, fallback) {
   const value = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -62,14 +64,16 @@ function hexToRgb(hex) {
 }
 
 function heatColor(hex, value, max) {
-  if (value <= 0 || max <= 0) return DEFAULT_COLORS[0];
+  if (max <= 0) return DEFAULT_COLORS[0];
+  if (value <= 0) return "#0f172a";
   const rgb = hexToRgb(hex);
-  if (!rgb) return hex;
-  const minAlpha = 0.2;
-  const maxAlpha = 0.95;
-  const intensity = Math.min(value / max, 1);
-  const alpha = minAlpha + (maxAlpha - minAlpha) * intensity;
-  return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`;
+  const base = hexToRgb("#0f172a");
+  if (!rgb || !base) return hex;
+  const intensity = Math.pow(Math.min(value / max, 1), 0.75);
+  const r = Math.round(base.r + (rgb.r - base.r) * intensity);
+  const g = Math.round(base.g + (rgb.g - base.g) * intensity);
+  const b = Math.round(base.b + (rgb.b - base.b) * intensity);
+  return `rgb(${r}, ${g}, ${b})`;
 }
 
 function clamp(value, min, max) {
@@ -659,6 +663,70 @@ function buildHeatmapMatrix(monthLabels, dayLabels, matrixValues, colors) {
   return container;
 }
 
+function buildYearMatrix(years, colLabels, matrixValues, color, options = {}) {
+  const container = document.createElement("div");
+  container.className = "stat-matrix";
+
+  const layout = getLayout();
+  const labelRow = document.createElement("div");
+  labelRow.className = "month-row";
+  labelRow.style.paddingLeft = `${layout.gridPadLeft}px`;
+  colLabels.forEach((label, index) => {
+    if (!label) return;
+    const el = document.createElement("div");
+    el.className = "month-label";
+    el.textContent = label;
+    el.style.left = `${index * (layout.cell + layout.gap)}px`;
+    labelRow.appendChild(el);
+  });
+  container.appendChild(labelRow);
+
+  const yearCol = document.createElement("div");
+  yearCol.className = "day-col year-col";
+  yearCol.style.paddingTop = `${layout.gridPadTop}px`;
+  yearCol.style.gap = `${layout.gap}px`;
+  years.forEach((year) => {
+    const el = document.createElement("div");
+    el.className = "day-label";
+    el.textContent = String(year);
+    el.style.height = `${layout.cell}px`;
+    el.style.lineHeight = `${layout.cell}px`;
+    yearCol.appendChild(el);
+  });
+  container.appendChild(yearCol);
+
+  const grid = document.createElement("div");
+  grid.className = "stat-grid";
+  grid.style.gridTemplateColumns = `repeat(${colLabels.length}, var(--cell))`;
+  grid.style.gridTemplateRows = `repeat(${years.length}, var(--cell))`;
+
+  const max = matrixValues.reduce(
+    (acc, row) => Math.max(acc, ...row),
+    0,
+  );
+  const tooltipLabels = options.tooltipLabels || colLabels;
+
+  years.forEach((year, row) => {
+    colLabels.forEach((_, col) => {
+      const value = matrixValues[row]?.[col] || 0;
+      const cell = document.createElement("div");
+      cell.className = "cell";
+      cell.style.gridColumn = col + 1;
+      cell.style.gridRow = row + 1;
+      cell.style.background = heatColor(color, value, max);
+      if (options.tooltipFormatter) {
+        const label = tooltipLabels[col];
+        const tooltipText = options.tooltipFormatter(year, label, value);
+        attachTooltip(cell, tooltipText);
+      }
+      grid.appendChild(cell);
+    });
+  });
+
+  container.appendChild(grid);
+  return container;
+}
+
 function calculateStreaks(activeDates) {
   if (!activeDates.length) {
     return { longest: 0, latest: 0 };
@@ -685,80 +753,127 @@ function renderStats(payload, types, years, selectedType) {
   if (!stats) return;
   stats.innerHTML = "";
 
-  const colors = selectedType === "all" ? DEFAULT_COLORS : getColors(selectedType);
-  const combined = combineAggregatesByDate(payload, types, years);
-  const dayCounts = new Array(7).fill(0);
-  const monthCounts = new Array(12).fill(0);
-  const monthDayCounts = Array.from({ length: 7 }, () => Array(12).fill(0));
-  const activeDates = [];
-
-  Object.entries(combined).forEach(([dateStr, entry]) => {
-    const count = entry.count || 0;
-    if (count > 0) {
-      activeDates.push(dateStr);
-    }
-    const date = new Date(`${dateStr}T00:00:00`);
-    const dayIndex = date.getDay();
-    const monthIndex = date.getMonth();
-    dayCounts[dayIndex] += count;
-    monthCounts[monthIndex] += count;
-    monthDayCounts[dayIndex][monthIndex] += count;
+  const color = STAT_HEAT_COLOR;
+  const yearsDesc = years.slice().sort((a, b) => b - a);
+  const yearIndex = new Map();
+  yearsDesc.forEach((year, index) => {
+    yearIndex.set(Number(year), index);
   });
 
-  const streaks = calculateStreaks(activeDates);
-  const totalWorkouts = dayCounts.reduce((acc, value) => acc + value, 0);
-  const activeDays = activeDates.length;
-  const avgPerActiveDay = activeDays > 0 ? totalWorkouts / activeDays : 0;
+  const perYearAggregates = {};
+  yearsDesc.forEach((year) => {
+    const yearData = payload.aggregates?.[String(year)] || {};
+    perYearAggregates[year] = combineYearAggregates(yearData, types);
+  });
 
-  const bestDayIndex = dayCounts.reduce((best, value, index) => (
-    value > dayCounts[best] ? index : best
+  const dayMatrix = yearsDesc.map((year) => {
+    const counts = new Array(7).fill(0);
+    Object.entries(perYearAggregates[year]).forEach(([dateStr, entry]) => {
+      const count = entry.count || 0;
+      if (count <= 0) return;
+      const date = new Date(`${dateStr}T00:00:00`);
+      counts[date.getDay()] += count;
+    });
+    return counts;
+  });
+  const dayTotals = dayMatrix.reduce(
+    (acc, row) => row.map((value, index) => acc[index] + value),
+    new Array(7).fill(0),
+  );
+  const bestDayIndex = dayTotals.reduce((best, value, index) => (
+    value > dayTotals[best] ? index : best
   ), 0);
-  const bestDayLabel = `${DAYS[bestDayIndex]} (${dayCounts[bestDayIndex]} workout${dayCounts[bestDayIndex] === 1 ? "" : "s"})`;
-
-  const monthLabels = MONTHS;
-  const bestMonthIndex = monthCounts.reduce((best, value, index) => (
-    value > monthCounts[best] ? index : best
-  ), 0);
-  const bestMonthLabel = `${monthLabels[bestMonthIndex]} (${monthCounts[bestMonthIndex]} workout${monthCounts[bestMonthIndex] === 1 ? "" : "s"})`;
+  const bestDayLabel = `${DAYS[bestDayIndex]} (${dayTotals[bestDayIndex]} workout${dayTotals[bestDayIndex] === 1 ? "" : "s"})`;
 
   const dayCard = buildStatCard("Workout Frequency by Day of Week", `Most active: ${bestDayLabel}`);
   dayCard.body.appendChild(
-    buildHeatmapRow(
+    buildYearMatrix(
+      yearsDesc,
       DAYS,
-      dayCounts,
-      colors,
-      (label, value) => `${label}\n${value} workout${value === 1 ? "" : "s"}`,
+      dayMatrix,
+      color,
+      {
+        tooltipFormatter: (year, label, value) => (
+          `${year} · ${label}\n${value} workout${value === 1 ? "" : "s"}`
+        ),
+      },
     ),
   );
   stats.appendChild(dayCard.card);
 
-  const hourCounts = new Array(24).fill(0);
-  const activities = getFilteredActivities(payload, types, years);
+  const monthMatrix = yearsDesc.map((year) => {
+    const counts = new Array(12).fill(0);
+    Object.entries(perYearAggregates[year]).forEach(([dateStr, entry]) => {
+      const count = entry.count || 0;
+      if (count <= 0) return;
+      const date = new Date(`${dateStr}T00:00:00`);
+      counts[date.getMonth()] += count;
+    });
+    return counts;
+  });
+  const monthTotals = monthMatrix.reduce(
+    (acc, row) => row.map((value, index) => acc[index] + value),
+    new Array(12).fill(0),
+  );
+  const bestMonthIndex = monthTotals.reduce((best, value, index) => (
+    value > monthTotals[best] ? index : best
+  ), 0);
+  const bestMonthLabel = `${MONTHS[bestMonthIndex]} (${monthTotals[bestMonthIndex]} workout${monthTotals[bestMonthIndex] === 1 ? "" : "s"})`;
+
+  const monthCard = buildStatCard("Workout Frequency by Month", `Busiest month: ${bestMonthLabel}`);
+  monthCard.body.appendChild(
+    buildYearMatrix(
+      yearsDesc,
+      MONTHS,
+      monthMatrix,
+      color,
+      {
+        tooltipFormatter: (year, label, value) => (
+          `${year} · ${label}\n${value} workout${value === 1 ? "" : "s"}`
+        ),
+      },
+    ),
+  );
+  stats.appendChild(monthCard.card);
+
+  const hourMatrix = yearsDesc.map(() => new Array(24).fill(0));
+  const activities = getFilteredActivities(payload, types, yearsDesc);
   activities.forEach((activity) => {
+    const row = yearIndex.get(Number(activity.year));
+    if (row === undefined) return;
     const hour = Number(activity.hour);
     if (Number.isFinite(hour) && hour >= 0 && hour <= 23) {
-      hourCounts[hour] += 1;
+      hourMatrix[row][hour] += 1;
     }
   });
 
-  const hourLabels = hourCounts.map((_, hour) => (hour % 3 === 0 ? formatHourLabel(hour) : ""));
-  const hourTooltipLabels = hourCounts.map((_, hour) => `${formatHourLabel(hour)} (${hour}:00)`);
-  const hourBestIndex = hourCounts.reduce((best, value, index) => (
-    value > hourCounts[best] ? index : best
+  const hourTotals = hourMatrix.reduce(
+    (acc, row) => row.map((value, index) => acc[index] + value),
+    new Array(24).fill(0),
+  );
+  const bestHourIndex = hourTotals.reduce((best, value, index) => (
+    value > hourTotals[best] ? index : best
   ), 0);
+  const hourLabels = hourTotals.map((_, hour) => (hour % 3 === 0 ? formatHourLabel(hour) : ""));
+  const hourTooltipLabels = hourTotals.map((_, hour) => `${formatHourLabel(hour)} (${hour}:00)`);
   const hourSubtitle = activities.length
-    ? `Peak hour: ${formatHourLabel(hourBestIndex)} (${hourCounts[hourBestIndex]} workout${hourCounts[hourBestIndex] === 1 ? "" : "s"})`
+    ? `Peak hour: ${formatHourLabel(bestHourIndex)} (${hourTotals[bestHourIndex]} workout${hourTotals[bestHourIndex] === 1 ? "" : "s"})`
     : "Peak hour: not enough time data yet";
 
   const hourCard = buildStatCard("Workout Frequency by Time of Day", hourSubtitle);
   if (activities.length) {
     hourCard.body.appendChild(
-      buildHeatmapRow(
+      buildYearMatrix(
+        yearsDesc,
         hourLabels,
-        hourCounts,
-        colors,
-        (label, value) => `${label}\n${value} workout${value === 1 ? "" : "s"}`,
-        hourTooltipLabels,
+        hourMatrix,
+        color,
+        {
+          tooltipLabels: hourTooltipLabels,
+          tooltipFormatter: (year, label, value) => (
+            `${year} · ${label}\n${value} workout${value === 1 ? "" : "s"}`
+          ),
+        },
       ),
     );
   } else {
@@ -769,23 +884,43 @@ function renderStats(payload, types, years, selectedType) {
   }
   stats.appendChild(hourCard.card);
 
-  const monthCard = buildStatCard("Workout Frequency by Month", `Busiest month: ${bestMonthLabel}`);
-  monthCard.body.appendChild(
-    buildHeatmapRow(
-      monthLabels,
-      monthCounts,
-      colors,
-      (label, value) => `${label}\n${value} workout${value === 1 ? "" : "s"}`,
+  const weekendMatrix = yearsDesc.map((year) => {
+    const counts = [0, 0];
+    Object.entries(perYearAggregates[year]).forEach(([dateStr, entry]) => {
+      const count = entry.count || 0;
+      if (count <= 0) return;
+      const date = new Date(`${dateStr}T00:00:00`);
+      const dayIndex = date.getDay();
+      if (dayIndex === 0 || dayIndex === 6) {
+        counts[1] += count;
+      } else {
+        counts[0] += count;
+      }
+    });
+    return counts;
+  });
+  const weekendTotals = weekendMatrix.reduce(
+    (acc, row) => row.map((value, index) => acc[index] + value),
+    [0, 0],
+  );
+  const weekendSubtitle = `Weekdays: ${weekendTotals[0]} · Weekends: ${weekendTotals[1]} · Left = Weekday, Right = Weekend`;
+
+  const weekendCard = buildStatCard("Weekday vs Weekend Mix", weekendSubtitle);
+  weekendCard.body.appendChild(
+    buildYearMatrix(
+      yearsDesc,
+      ["", ""],
+      weekendMatrix,
+      color,
+      {
+        tooltipLabels: ["Weekday", "Weekend"],
+        tooltipFormatter: (year, label, value) => (
+          `${year} · ${label}\n${value} workout${value === 1 ? "" : "s"}`
+        ),
+      },
     ),
   );
-  stats.appendChild(monthCard.card);
-
-  const matrixCard = buildStatCard(
-    "Seasonality Matrix (Month × Weekday)",
-    `Longest streak: ${streaks.longest} day${streaks.longest === 1 ? "" : "s"} · Latest streak: ${streaks.latest} day${streaks.latest === 1 ? "" : "s"} · Avg per active day: ${avgPerActiveDay.toFixed(2)}`,
-  );
-  matrixCard.body.appendChild(buildHeatmapMatrix(monthLabels, DAYS, monthDayCounts, colors));
-  stats.appendChild(matrixCard.card);
+  stats.appendChild(weekendCard.card);
 }
 
 async function init() {
@@ -810,6 +945,7 @@ async function init() {
   ];
 
   function renderButtons(container, options, onSelect) {
+    if (!container) return;
     container.innerHTML = "";
     options.forEach((option) => {
       const button = document.createElement("button");
@@ -847,7 +983,9 @@ async function init() {
 
   function update() {
     const types = selectedType === "all" ? payload.types : [selectedType];
-    const years = selectedYear === "all" ? payload.years : [Number(selectedYear)];
+    const years = isStatsPage
+      ? payload.years.slice()
+      : (selectedYear === "all" ? payload.years : [Number(selectedYear)]);
     years.sort((a, b) => b - a);
 
     updateButtonState(typeButtons, selectedType);
