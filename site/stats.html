@@ -50,7 +50,7 @@
       }
 
       body.stats-page {
-        --cell: 18px;
+        --cell: 16px;
         --gap: 3px;
       }
 
@@ -234,6 +234,8 @@
       .stats {
         display: grid;
         gap: 24px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
       }
 
       .card {
@@ -243,6 +245,7 @@
         padding: 24px;
         box-shadow: var(--shadow);
         overflow-x: auto;
+        min-width: 0;
       }
 
       .card-title {
@@ -253,7 +256,8 @@
 
       .stat-body {
         display: grid;
-        gap: 12px;
+        gap: 16px;
+        padding-top: 4px;
       }
 
       .stat-subtitle {
@@ -292,8 +296,8 @@
 
       .stat-matrix {
         display: inline-grid;
-        grid-template-columns: 36px max-content;
-        grid-template-rows: 18px auto;
+        grid-template-columns: 48px max-content;
+        grid-template-rows: 26px auto;
         column-gap: 8px;
         row-gap: 0;
         align-items: start;
@@ -312,7 +316,7 @@
         position: relative;
         grid-column: 2;
         grid-row: 1;
-        height: 18px;
+        height: 26px;
         width: max-content;
       }
 
@@ -320,6 +324,16 @@
         position: absolute;
         top: 2px;
         color: #f1f5f9;
+        white-space: nowrap;
+      }
+
+      .month-row.rotate-labels {
+        height: 34px;
+      }
+
+      .month-label.diagonal {
+        transform: rotate(-45deg);
+        transform-origin: left top;
       }
 
       .day-col {
@@ -461,6 +475,15 @@
         .day-label {
           font-size: 9px;
         }
+        .stats {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 980px) {
+        .stats {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 420px) {
@@ -499,6 +522,6 @@
 
     <div id="tooltip" class="tooltip"></div>
 
-    <script src="app.js?v=9"></script>
+    <script src="app.js?v=10"></script>
   </body>
 </html>

@@ -670,11 +670,17 @@ function buildYearMatrix(years, colLabels, matrixValues, color, options = {}) {
   const layout = getLayout();
   const labelRow = document.createElement("div");
   labelRow.className = "month-row";
+  if (options.rotateLabels) {
+    labelRow.classList.add("rotate-labels");
+  }
   labelRow.style.paddingLeft = `${layout.gridPadLeft}px`;
   colLabels.forEach((label, index) => {
     if (!label) return;
     const el = document.createElement("div");
     el.className = "month-label";
+    if (options.rotateLabels) {
+      el.classList.add("diagonal");
+    }
     el.textContent = label;
     el.style.left = `${index * (layout.cell + layout.gap)}px`;
     labelRow.appendChild(el);
@@ -793,6 +799,7 @@ function renderStats(payload, types, years, selectedType) {
       dayMatrix,
       color,
       {
+        rotateLabels: true,
         tooltipFormatter: (year, label, value) => (
           `${year} · ${label}\n${value} workout${value === 1 ? "" : "s"}`
         ),
@@ -828,6 +835,7 @@ function renderStats(payload, types, years, selectedType) {
       monthMatrix,
       color,
       {
+        rotateLabels: true,
         tooltipFormatter: (year, label, value) => (
           `${year} · ${label}\n${value} workout${value === 1 ? "" : "s"}`
         ),
