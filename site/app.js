@@ -551,12 +551,9 @@ function getFilteredActivities(payload, types, years) {
   ));
 }
 
-function buildStatRow(single = false) {
+function buildStatRow() {
   const row = document.createElement("div");
   row.className = "card stats-row";
-  if (single) {
-    row.classList.add("single");
-  }
   return row;
 }
 
@@ -577,6 +574,20 @@ function buildStatPanel(title, subtitle) {
   body.className = "stat-body";
   panel.appendChild(body);
   return { panel, body };
+}
+
+function buildFactBox(text) {
+  const box = document.createElement("div");
+  box.className = "stat-fact";
+  const label = document.createElement("div");
+  label.className = "stat-fact-label";
+  label.textContent = "Highlight";
+  const value = document.createElement("div");
+  value.className = "stat-fact-value";
+  value.textContent = text;
+  box.appendChild(label);
+  box.appendChild(value);
+  return box;
 }
 
 function buildYearMatrix(years, colLabels, matrixValues, color, options = {}) {
@@ -638,7 +649,7 @@ function buildYearMatrix(years, colLabels, matrixValues, color, options = {}) {
       cell.style.background = heatColor(color, value, max);
       if (options.tooltipFormatter) {
         const label = tooltipLabels[col];
-        const tooltipText = options.tooltipFormatter(year, label, value);
+        const tooltipText = options.tooltipFormatter(year, label, value, row, col);
         attachTooltip(cell, tooltipText);
       }
     });
@@ -685,21 +696,32 @@ function renderStats(payload, types, years, selectedType) {
     yearIndex.set(Number(year), index);
   });
 
-  const perYearAggregates = {};
-  yearsDesc.forEach((year) => {
-    const yearData = payload.aggregates?.[String(year)] || {};
-    perYearAggregates[year] = combineYearAggregates(yearData, types);
-  });
+  const dayMatrix = yearsDesc.map(() => new Array(7).fill(0));
+  const dayBreakdowns = yearsDesc.map(() => (
+    Array.from({ length: 7 }, () => ({}))
+  ));
+  const monthMatrix = yearsDesc.map(() => new Array(12).fill(0));
+  const monthBreakdowns = yearsDesc.map(() => (
+    Array.from({ length: 12 }, () => ({}))
+  ));
 
-  const dayMatrix = yearsDesc.map((year) => {
-    const counts = new Array(7).fill(0);
-    Object.entries(perYearAggregates[year]).forEach(([dateStr, entry]) => {
-      const count = entry.count || 0;
-      if (count <= 0) return;
-      const date = new Date(`${dateStr}T00:00:00`);
-      counts[date.getDay()] += count;
+  yearsDesc.forEach((year, row) => {
+    types.forEach((type) => {
+      const entries = payload.aggregates?.[String(year)]?.[type] || {};
+      Object.entries(entries).forEach(([dateStr, entry]) => {
+        const count = entry.count || 0;
+        if (count <= 0) return;
+        const date = new Date(`${dateStr}T00:00:00`);
+        const dayIndex = date.getDay();
+        const monthIndex = date.getMonth();
+        dayMatrix[row][dayIndex] += count;
+        monthMatrix[row][monthIndex] += count;
+        const dayBucket = dayBreakdowns[row][dayIndex];
+        const monthBucket = monthBreakdowns[row][monthIndex];
+        dayBucket[type] = (dayBucket[type] || 0) + count;
+        monthBucket[type] = (monthBucket[type] || 0) + count;
+      });
     });
-    return counts;
   });
   const dayTotals = dayMatrix.reduce(
     (acc, row) => row.map((value, index) => acc[index] + value),
@@ -710,8 +732,19 @@ function renderStats(payload, types, years, selectedType) {
   ), 0);
   const bestDayLabel = `${DAYS[bestDayIndex]} (${dayTotals[bestDayIndex]} workout${dayTotals[bestDayIndex] === 1 ? "" : "s"})`;
 
+  const formatBreakdown = (total, breakdown) => {
+    const lines = [`Total: ${total} workout${total === 1 ? "" : "s"}`];
+    types.forEach((type) => {
+      const count = breakdown[type] || 0;
+      if (count > 0) {
+        lines.push(`${displayType(type)}: ${count}`);
+      }
+    });
+    return lines.join("\n");
+  };
+
   const row1 = buildStatRow();
-  const dayPanel = buildStatPanel("Workout Frequency by Day of Week", `Most active: ${bestDayLabel}`);
+  const dayPanel = buildStatPanel("Workout Frequency by Day of Week");
   dayPanel.body.appendChild(
     buildYearMatrix(
       yearsDesc,
@@ -720,24 +753,16 @@ function renderStats(payload, types, years, selectedType) {
       color,
       {
         rotateLabels: true,
-        tooltipFormatter: (year, label, value) => (
-          `${year} · ${label}\n${value} workout${value === 1 ? "" : "s"}`
-        ),
+        tooltipFormatter: (year, label, value, row, col) => {
+          const breakdown = dayBreakdowns[row][col] || {};
+          return `${year} · ${label}\n${formatBreakdown(value, breakdown)}`;
+        },
       },
     ),
   );
   row1.appendChild(dayPanel.panel);
-
-  const monthMatrix = yearsDesc.map((year) => {
-    const counts = new Array(12).fill(0);
-    Object.entries(perYearAggregates[year]).forEach(([dateStr, entry]) => {
-      const count = entry.count || 0;
-      if (count <= 0) return;
-      const date = new Date(`${dateStr}T00:00:00`);
-      counts[date.getMonth()] += count;
-    });
-    return counts;
-  });
+  row1.appendChild(buildFactBox(`Most active: ${bestDayLabel}`));
+  stats.appendChild(row1);
   const monthTotals = monthMatrix.reduce(
     (acc, row) => row.map((value, index) => acc[index] + value),
     new Array(12).fill(0),
@@ -747,7 +772,8 @@ function renderStats(payload, types, years, selectedType) {
   ), 0);
   const bestMonthLabel = `${MONTHS[bestMonthIndex]} (${monthTotals[bestMonthIndex]} workout${monthTotals[bestMonthIndex] === 1 ? "" : "s"})`;
 
-  const monthPanel = buildStatPanel("Workout Frequency by Month", `Busiest month: ${bestMonthLabel}`);
+  const row2 = buildStatRow();
+  const monthPanel = buildStatPanel("Workout Frequency by Month");
   monthPanel.body.appendChild(
     buildYearMatrix(
       yearsDesc,
@@ -756,16 +782,21 @@ function renderStats(payload, types, years, selectedType) {
       color,
       {
         rotateLabels: true,
-        tooltipFormatter: (year, label, value) => (
-          `${year} · ${label}\n${value} workout${value === 1 ? "" : "s"}`
-        ),
+        tooltipFormatter: (year, label, value, row, col) => {
+          const breakdown = monthBreakdowns[row][col] || {};
+          return `${year} · ${label}\n${formatBreakdown(value, breakdown)}`;
+        },
       },
     ),
   );
-  row1.appendChild(monthPanel.panel);
-  stats.appendChild(row1);
+  row2.appendChild(monthPanel.panel);
+  row2.appendChild(buildFactBox(`Busiest month: ${bestMonthLabel}`));
+  stats.appendChild(row2);
 
   const hourMatrix = yearsDesc.map(() => new Array(24).fill(0));
+  const hourBreakdowns = yearsDesc.map(() => (
+    Array.from({ length: 24 }, () => ({}))
+  ));
   const activities = getFilteredActivities(payload, types, yearsDesc);
   activities.forEach((activity) => {
     const row = yearIndex.get(Number(activity.year));
@@ -773,6 +804,9 @@ function renderStats(payload, types, years, selectedType) {
     const hour = Number(activity.hour);
     if (Number.isFinite(hour) && hour >= 0 && hour <= 23) {
       hourMatrix[row][hour] += 1;
+      const bucket = hourBreakdowns[row][hour];
+      const type = activity.type;
+      bucket[type] = (bucket[type] || 0) + 1;
     }
   });
 
@@ -789,8 +823,8 @@ function renderStats(payload, types, years, selectedType) {
     ? `Peak hour: ${formatHourLabel(bestHourIndex)} (${hourTotals[bestHourIndex]} workout${hourTotals[bestHourIndex] === 1 ? "" : "s"})`
     : "Peak hour: not enough time data yet";
 
-  const row2 = buildStatRow(true);
-  const hourPanel = buildStatPanel("Workout Frequency by Time of Day", hourSubtitle);
+  const row3 = buildStatRow();
+  const hourPanel = buildStatPanel("Workout Frequency by Time of Day");
   if (activities.length) {
     hourPanel.body.appendChild(
       buildYearMatrix(
@@ -800,9 +834,10 @@ function renderStats(payload, types, years, selectedType) {
         color,
         {
           tooltipLabels: hourTooltipLabels,
-          tooltipFormatter: (year, label, value) => (
-            `${year} · ${label}\n${value} workout${value === 1 ? "" : "s"}`
-          ),
+          tooltipFormatter: (year, label, value, row, col) => {
+            const breakdown = hourBreakdowns[row][col] || {};
+            return `${year} · ${label}\n${formatBreakdown(value, breakdown)}`;
+          },
         },
       ),
     );
@@ -812,8 +847,9 @@ function renderStats(payload, types, years, selectedType) {
     fallback.textContent = "Time-of-day stats require activity timestamps.";
     hourPanel.body.appendChild(fallback);
   }
-  row2.appendChild(hourPanel.panel);
-  stats.appendChild(row2);
+  row3.appendChild(hourPanel.panel);
+  row3.appendChild(buildFactBox(hourSubtitle));
+  stats.appendChild(row3);
 }
 
 async function init() {

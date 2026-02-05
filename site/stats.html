@@ -238,15 +238,15 @@
         gap: 24px;
       }
 
-      .stats-row {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
-        align-items: start;
+      body.stats-page .summary {
+        display: none;
       }
 
-      .stats-row.single {
-        grid-template-columns: 1fr;
+      .stats-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 240px;
+        gap: 20px;
+        align-items: start;
       }
 
       .card {
@@ -263,6 +263,30 @@
         display: grid;
         gap: 8px;
         min-width: 0;
+      }
+
+      .stat-fact {
+        background: rgba(15, 23, 42, 0.55);
+        border: 1px solid rgba(148, 163, 184, 0.3);
+        border-radius: 12px;
+        padding: 16px;
+        align-self: start;
+        display: grid;
+        gap: 8px;
+        min-width: 0;
+      }
+
+      .stat-fact-label {
+        font-size: 11px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .stat-fact-value {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text);
       }
 
       .card-title {
@@ -505,6 +529,6 @@
 
     <div id="tooltip" class="tooltip"></div>
 
-    <script src="app.js?v=16"></script>
+    <script src="app.js?v=17"></script>
   </body>
 </html>
