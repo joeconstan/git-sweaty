@@ -7517,6 +7517,12 @@
       "hour": 7,
       "type": "WeightTraining",
       "year": 2026
+    },
+    {
+      "date": "2026-02-05",
+      "hour": 8,
+      "type": "Ride",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -18601,6 +18607,15 @@
           "distance": 0.0,
           "elevation_gain": 0.0,
           "moving_time": 1102.0
+        },
+        "2026-02-05": {
+          "activity_ids": [
+            17295648980
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 2085.0
         }
       },
       "Run": {
@@ -18780,7 +18795,7 @@
       }
     }
   },
-  "generated_at": "2026-02-05T14:09:21.447925+00:00",
+  "generated_at": "2026-02-05T14:21:54.146253+00:00",
   "types": [
     "Run",
     "Ride",
