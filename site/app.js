@@ -7,7 +7,7 @@ const TYPE_COLORS = {
 const MULTI_TYPE_COLOR = "#b967ff";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const typeButtons = document.getElementById("typeButtons");
 const yearButtons = document.getElementById("yearButtons");
@@ -34,17 +34,17 @@ function getLayout() {
   };
 }
 
-function mondayOnOrBefore(d) {
+function sundayOnOrBefore(d) {
   const day = d.getDay();
-  const offset = (day + 6) % 7; // convert Sunday=0 to 6, Monday=1 to 0
+  const offset = day % 7; // Sunday=0
   const result = new Date(d);
   result.setDate(d.getDate() - offset);
   return result;
 }
 
-function sundayOnOrAfter(d) {
+function saturdayOnOrAfter(d) {
   const day = d.getDay();
-  const offset = (7 - day) % 7;
+  const offset = (6 - day + 7) % 7;
   const result = new Date(d);
   result.setDate(d.getDate() + offset);
   return result;
@@ -234,8 +234,8 @@ function buildHeatmapArea(aggregates, year, units, colors, type, layout, options
 
   const yearStart = new Date(year, 0, 1);
   const yearEnd = new Date(year, 11, 31);
-  const start = mondayOnOrBefore(yearStart);
-  const end = sundayOnOrAfter(yearEnd);
+  const start = sundayOnOrBefore(yearStart);
+  const end = saturdayOnOrAfter(yearEnd);
 
   for (let month = 0; month < 12; month += 1) {
     const monthStart = new Date(year, month, 1);
@@ -262,7 +262,7 @@ function buildHeatmapArea(aggregates, year, units, colors, type, layout, options
     };
 
     const weekIndex = Math.floor((day - start) / (1000 * 60 * 60 * 24 * 7));
-    const row = (day.getDay() + 6) % 7; // Monday=0
+    const row = day.getDay(); // Sunday=0
 
     const cell = document.createElement("div");
     cell.className = "cell";
