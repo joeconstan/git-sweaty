@@ -579,154 +579,49 @@ function buildStatPanel(title, subtitle) {
   return { panel, body };
 }
 
-function buildHeatmapRow(labels, values, colors, tooltipFormatter, tooltipLabels) {
-  const container = document.createElement("div");
-  container.className = "stat-row";
-
-  const labelRow = document.createElement("div");
-  labelRow.className = "stat-labels";
-  labelRow.style.gridTemplateColumns = `repeat(${labels.length}, var(--cell))`;
-
-  labels.forEach((label) => {
-    const el = document.createElement("div");
-    el.className = "stat-label";
-    el.textContent = label;
-    labelRow.appendChild(el);
-  });
-
-  const grid = document.createElement("div");
-  grid.className = "stat-grid";
-  grid.style.gridTemplateColumns = `repeat(${labels.length}, var(--cell))`;
-  grid.style.gridTemplateRows = "repeat(1, var(--cell))";
-
-  const max = values.reduce((acc, value) => Math.max(acc, value), 0);
-  const tooltipNames = tooltipLabels || labels;
-  values.forEach((value, index) => {
-    const cell = document.createElement("div");
-    cell.className = "cell";
-    cell.style.background = heatColor(colors[4], value, max);
-    const tooltipText = tooltipFormatter ? tooltipFormatter(tooltipNames[index], value) : null;
-    attachTooltip(cell, tooltipText);
-    grid.appendChild(cell);
-  });
-
-  container.appendChild(labelRow);
-  container.appendChild(grid);
-  return container;
-}
-
-function buildHeatmapMatrix(monthLabels, dayLabels, matrixValues, colors) {
-  const container = document.createElement("div");
-  container.className = "stat-matrix";
-
-  const monthRow = document.createElement("div");
-  monthRow.className = "month-row";
-  monthRow.style.paddingLeft = `${getLayout().gridPadLeft}px`;
-  container.appendChild(monthRow);
-
-  monthLabels.forEach((label, index) => {
-    const x = index * (getLayout().cell + getLayout().gap);
-    const el = document.createElement("div");
-    el.className = "month-label";
-    el.textContent = label;
-    el.style.left = `${x}px`;
-    monthRow.appendChild(el);
-  });
-
-  const dayCol = document.createElement("div");
-  dayCol.className = "day-col";
-  dayCol.style.paddingTop = `${getLayout().gridPadTop}px`;
-  dayCol.style.gap = `${getLayout().gap}px`;
-  dayLabels.forEach((label) => {
-    const el = document.createElement("div");
-    el.className = "day-label";
-    el.textContent = label;
-    el.style.height = `${getLayout().cell}px`;
-    el.style.lineHeight = `${getLayout().cell}px`;
-    dayCol.appendChild(el);
-  });
-  container.appendChild(dayCol);
-
-  const grid = document.createElement("div");
-  grid.className = "stat-grid";
-  grid.style.gridTemplateColumns = `repeat(${monthLabels.length}, var(--cell))`;
-  grid.style.gridTemplateRows = `repeat(${dayLabels.length}, var(--cell))`;
-
-  const max = matrixValues.reduce(
-    (acc, row) => Math.max(acc, ...row),
-    0,
-  );
-
-  dayLabels.forEach((dayLabel, row) => {
-    monthLabels.forEach((monthLabel, col) => {
-      const value = matrixValues[row][col] || 0;
-      const cell = document.createElement("div");
-      cell.className = "cell";
-      cell.style.background = heatColor(colors[4], value, max);
-      cell.style.gridColumn = col + 1;
-      cell.style.gridRow = row + 1;
-      attachTooltip(cell, `${dayLabel} · ${monthLabel}\n${value} workout${value === 1 ? "" : "s"}`);
-      grid.appendChild(cell);
-    });
-  });
-
-  container.appendChild(grid);
-  return container;
-}
-
 function buildYearMatrix(years, colLabels, matrixValues, color, options = {}) {
   const container = document.createElement("div");
   container.className = "stat-matrix";
 
   const layout = getLayout();
-  const labelRow = document.createElement("div");
-  labelRow.className = "month-row";
-  labelRow.style.display = "grid";
-  labelRow.style.gridTemplateColumns = `repeat(${colLabels.length}, var(--cell))`;
-  labelRow.style.gap = `${layout.gap}px`;
-  labelRow.style.alignItems = "end";
-  labelRow.style.justifyItems = "center";
-  if (options.rotateLabels) {
-    labelRow.classList.add("rotate-labels");
-  }
-  labelRow.style.paddingLeft = `${layout.gridPadLeft}px`;
-  labelRow.style.paddingRight = `${layout.gridPadRight}px`;
-  const gridWidth = colLabels.length * layout.cell + Math.max(0, colLabels.length - 1) * layout.gap;
-  labelRow.style.width = `${gridWidth}px`;
-  colLabels.forEach((label, index) => {
-    if (!label) return;
+  const axisGrid = document.createElement("div");
+  axisGrid.className = "axis-grid";
+  axisGrid.style.gridTemplateColumns = `var(--axis-width) repeat(${colLabels.length}, var(--cell))`;
+  axisGrid.style.gridTemplateRows = `var(--label-row-height) repeat(${years.length}, var(--cell))`;
+  axisGrid.style.gap = `${layout.gap}px`;
+
+  const corner = document.createElement("div");
+  corner.className = "axis-label empty";
+  axisGrid.appendChild(corner);
+
+  colLabels.forEach((label) => {
     const el = document.createElement("div");
-    el.className = "month-label";
+    el.className = "axis-label";
     if (options.rotateLabels) {
       el.classList.add("diagonal");
     }
-    el.textContent = label;
-    labelRow.appendChild(el);
+    if (!label) {
+      el.classList.add("empty");
+    } else {
+      el.textContent = label;
+    }
+    axisGrid.appendChild(el);
   });
-  container.appendChild(labelRow);
 
-  const yearCol = document.createElement("div");
-  yearCol.className = "day-col year-col";
-  yearCol.style.display = "grid";
-  yearCol.style.gridTemplateRows = `repeat(${years.length}, var(--cell))`;
-  yearCol.style.gap = `${layout.gap}px`;
-  yearCol.style.justifyItems = "end";
-  yearCol.style.paddingTop = `${layout.gridPadTop}px`;
-  yearCol.style.paddingBottom = `${layout.gridPadBottom}px`;
-  years.forEach((year) => {
-    const el = document.createElement("div");
-    el.className = "day-label";
-    el.textContent = String(year);
-    el.style.height = `${layout.cell}px`;
-    el.style.lineHeight = `${layout.cell}px`;
-    yearCol.appendChild(el);
+  years.forEach((year, row) => {
+    const yLabel = document.createElement("div");
+    yLabel.className = "axis-label y";
+    yLabel.textContent = String(year);
+    axisGrid.appendChild(yLabel);
+
+    colLabels.forEach((_, col) => {
+      const cell = document.createElement("div");
+      cell.className = "cell axis-cell";
+      const value = matrixValues[row]?.[col] || 0;
+      cell.style.background = "transparent";
+      axisGrid.appendChild(cell);
+    });
   });
-  container.appendChild(yearCol);
-
-  const grid = document.createElement("div");
-  grid.className = "stat-grid";
-  grid.style.gridTemplateColumns = `repeat(${colLabels.length}, var(--cell))`;
-  grid.style.gridTemplateRows = `repeat(${years.length}, var(--cell))`;
 
   const max = matrixValues.reduce(
     (acc, row) => Math.max(acc, ...row),
@@ -734,27 +629,25 @@ function buildYearMatrix(years, colLabels, matrixValues, color, options = {}) {
   );
   const tooltipLabels = options.tooltipLabels || colLabels;
 
+  const heatCells = axisGrid.querySelectorAll(".axis-cell");
   years.forEach((year, row) => {
     colLabels.forEach((_, col) => {
+      const index = row * colLabels.length + col;
+      const cell = heatCells[index];
       const value = matrixValues[row]?.[col] || 0;
-      const cell = document.createElement("div");
-      cell.className = "cell";
-      cell.style.gridColumn = col + 1;
-      cell.style.gridRow = row + 1;
       cell.style.background = heatColor(color, value, max);
       if (options.tooltipFormatter) {
         const label = tooltipLabels[col];
         const tooltipText = options.tooltipFormatter(year, label, value);
         attachTooltip(cell, tooltipText);
       }
-      grid.appendChild(cell);
     });
   });
 
   const gridWrap = document.createElement("div");
   gridWrap.className = "stat-grid-wrap";
   gridWrap.style.padding = `${layout.gridPadTop}px ${layout.gridPadRight}px ${layout.gridPadBottom}px ${layout.gridPadLeft}px`;
-  gridWrap.appendChild(grid);
+  gridWrap.appendChild(axisGrid);
   container.appendChild(gridWrap);
   return container;
 }
