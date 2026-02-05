@@ -51,12 +51,12 @@ def _year_range_from_config(config: Dict) -> List[int]:
     return list(range(start_year, current_year + 1))
 
 
-def _monday_on_or_before(d: date) -> date:
-    return d - timedelta(days=d.weekday())
+def _sunday_on_or_before(d: date) -> date:
+    return d - timedelta(days=(d.weekday() + 1) % 7)
 
 
-def _sunday_on_or_after(d: date) -> date:
-    return d + timedelta(days=(6 - d.weekday()))
+def _saturday_on_or_after(d: date) -> date:
+    return d + timedelta(days=(5 - d.weekday()) % 7)
 
 
 def _level(count: int) -> int:
@@ -84,8 +84,8 @@ def _svg_for_year(
     entries: Dict[str, Dict],
     units: Dict[str, str],
 ) -> str:
-    start = _monday_on_or_before(date(year, 1, 1))
-    end = _sunday_on_or_after(date(year, 12, 31))
+    start = _sunday_on_or_before(date(year, 1, 1))
+    end = _saturday_on_or_after(date(year, 12, 31))
 
     weeks = ((end - start).days // 7) + 1
     width = weeks * (CELL + GAP) + PADDING * 2 + LABEL_LEFT
@@ -117,7 +117,7 @@ def _svg_for_year(
             f'<text x="{x}" y="{PADDING + 12}" font-size="10" fill="{LABEL_COLOR}" font-family="Arial, sans-serif">{month_labels[month - 1]}</text>'
         )
 
-    day_labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    day_labels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     for row, label in enumerate(day_labels):
         y = grid_y + row * (CELL + GAP) + CELL - 2
         x = PADDING + LABEL_LEFT - 6
@@ -130,7 +130,7 @@ def _svg_for_year(
     current = start
     while current <= end:
         week_index = (current - start).days // 7
-        row = current.weekday()  # Monday=0
+        row = (current.weekday() + 1) % 7  # Sunday=0
         x = week_index * (CELL + GAP)
         y = row * (CELL + GAP)
 
