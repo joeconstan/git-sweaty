@@ -347,15 +347,15 @@
       }
 
       .month-row.rotate-labels {
-        min-height: 60px;
-        padding-bottom: 4px;
+        min-height: 64px;
+        padding-bottom: 6px;
         align-items: end;
-        justify-items: start;
+        justify-items: center;
       }
 
       .month-label.diagonal {
-        transform: rotate(-45deg);
-        transform-origin: left bottom;
+        transform: translateY(6px) rotate(-45deg);
+        transform-origin: 50% 100%;
       }
 
       .day-col {
@@ -554,6 +554,6 @@
 
     <div id="tooltip" class="tooltip"></div>
 
-    <script src="app.js?v=13"></script>
+    <script src="app.js?v=14"></script>
   </body>
 </html>

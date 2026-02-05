@@ -685,12 +685,14 @@ function buildYearMatrix(years, colLabels, matrixValues, color, options = {}) {
   labelRow.style.gridTemplateColumns = `repeat(${colLabels.length}, var(--cell))`;
   labelRow.style.gap = `${layout.gap}px`;
   labelRow.style.alignItems = "end";
-  labelRow.style.justifyItems = options.rotateLabels ? "start" : "center";
+  labelRow.style.justifyItems = "center";
   if (options.rotateLabels) {
     labelRow.classList.add("rotate-labels");
   }
   labelRow.style.paddingLeft = `${layout.gridPadLeft}px`;
   labelRow.style.paddingRight = `${layout.gridPadRight}px`;
+  const gridWidth = colLabels.length * layout.cell + Math.max(0, colLabels.length - 1) * layout.gap;
+  labelRow.style.width = `${gridWidth}px`;
   colLabels.forEach((label, index) => {
     if (!label) return;
     const el = document.createElement("div");
@@ -783,7 +785,7 @@ function renderStats(payload, types, years, selectedType) {
   if (!stats) return;
   stats.innerHTML = "";
 
-  const color = selectedType === "all" ? STAT_HEAT_COLOR : getColors(selectedType)[4];
+  const color = selectedType === "all" ? MULTI_TYPE_COLOR : getColors(selectedType)[4];
   const yearsDesc = years.slice().sort((a, b) => b - a);
   const yearIndex = new Map();
   yearsDesc.forEach((year, index) => {
