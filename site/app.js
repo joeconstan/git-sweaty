@@ -892,43 +892,60 @@ function renderStats(payload, types, years, selectedType) {
   }
   stats.appendChild(hourCard.card);
 
-  const weekendMatrix = yearsDesc.map((year) => {
-    const counts = [0, 0];
+  const monthDistanceMatrix = yearsDesc.map((year) => {
+    const distances = new Array(12).fill(0);
+    Object.entries(perYearAggregates[year]).forEach(([dateStr, entry]) => {
+      const distance = entry.distance || 0;
+      if (distance <= 0) return;
+      const date = new Date(`${dateStr}T00:00:00`);
+      distances[date.getMonth()] += distance;
+    });
+    return distances;
+  });
+  const monthCountMatrix = yearsDesc.map((year) => {
+    const counts = new Array(12).fill(0);
     Object.entries(perYearAggregates[year]).forEach(([dateStr, entry]) => {
       const count = entry.count || 0;
       if (count <= 0) return;
       const date = new Date(`${dateStr}T00:00:00`);
-      const dayIndex = date.getDay();
-      if (dayIndex === 0 || dayIndex === 6) {
-        counts[1] += count;
-      } else {
-        counts[0] += count;
-      }
+      counts[date.getMonth()] += count;
     });
     return counts;
   });
-  const weekendTotals = weekendMatrix.reduce(
+  const totalDistanceByMonth = monthDistanceMatrix.reduce(
     (acc, row) => row.map((value, index) => acc[index] + value),
-    [0, 0],
+    new Array(12).fill(0),
   );
-  const weekendSubtitle = `Weekdays: ${weekendTotals[0]} · Weekends: ${weekendTotals[1]} · Left = Weekday, Right = Weekend`;
+  const bestDistanceMonthIndex = totalDistanceByMonth.reduce((best, value, index) => (
+    value > totalDistanceByMonth[best] ? index : best
+  ), 0);
+  const bestDistanceLabel = `${MONTHS[bestDistanceMonthIndex]} (${formatDistance(totalDistanceByMonth[bestDistanceMonthIndex], payload.units || { distance: "mi" })})`;
 
-  const weekendCard = buildStatCard("Weekday vs Weekend Mix", weekendSubtitle);
-  weekendCard.body.appendChild(
+  const distanceCard = buildStatCard("Training Volume by Month (Distance)", `Peak month overall: ${bestDistanceLabel}`);
+  distanceCard.body.appendChild(
     buildYearMatrix(
       yearsDesc,
-      ["", ""],
-      weekendMatrix,
+      MONTHS,
+      monthDistanceMatrix,
       color,
       {
-        tooltipLabels: ["Weekday", "Weekend"],
-        tooltipFormatter: (year, label, value) => (
-          `${year} · ${label}\n${value} workout${value === 1 ? "" : "s"}`
-        ),
+        rotateLabels: true,
+        tooltipFormatter: (year, label, value) => {
+          const rowIndex = yearIndex.get(Number(year));
+          const monthIndex = MONTHS.indexOf(label);
+          const workoutCount = rowIndex !== undefined && monthIndex >= 0
+            ? monthCountMatrix[rowIndex][monthIndex]
+            : 0;
+          return (
+            `${year} · ${label}\n` +
+            `${formatDistance(value, payload.units || { distance: "mi" })} total\n` +
+            `${workoutCount} workout${workoutCount === 1 ? "" : "s"}`
+          );
+        },
       },
     ),
   );
-  stats.appendChild(weekendCard.card);
+  stats.appendChild(distanceCard.card);
 }
 
 async function init() {
