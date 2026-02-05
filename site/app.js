@@ -1056,7 +1056,7 @@ async function init() {
     renderStats(payload, types, years, selectedType);
 
     const showTypeBreakdown = selectedType === "all";
-    const showActiveDays = selectedType === "all" && selectedYear === "all";
+    const showActiveDays = selectedType === "all" && Boolean(heatmaps);
     const hideDistanceElevation = selectedType === "WeightTraining";
     buildSummary(payload, types, years, showTypeBreakdown, showActiveDays, hideDistanceElevation);
   }
