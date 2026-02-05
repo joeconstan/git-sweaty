@@ -670,10 +670,16 @@ function buildYearMatrix(years, colLabels, matrixValues, color, options = {}) {
   const layout = getLayout();
   const labelRow = document.createElement("div");
   labelRow.className = "month-row";
+  labelRow.style.display = "grid";
+  labelRow.style.gridTemplateColumns = `repeat(${colLabels.length}, var(--cell))`;
+  labelRow.style.gap = `${layout.gap}px`;
+  labelRow.style.alignItems = "end";
+  labelRow.style.justifyItems = options.rotateLabels ? "start" : "center";
   if (options.rotateLabels) {
     labelRow.classList.add("rotate-labels");
   }
   labelRow.style.paddingLeft = `${layout.gridPadLeft}px`;
+  labelRow.style.paddingRight = `${layout.gridPadRight}px`;
   colLabels.forEach((label, index) => {
     if (!label) return;
     const el = document.createElement("div");
@@ -682,15 +688,18 @@ function buildYearMatrix(years, colLabels, matrixValues, color, options = {}) {
       el.classList.add("diagonal");
     }
     el.textContent = label;
-    el.style.left = `${index * (layout.cell + layout.gap)}px`;
     labelRow.appendChild(el);
   });
   container.appendChild(labelRow);
 
   const yearCol = document.createElement("div");
   yearCol.className = "day-col year-col";
-  yearCol.style.paddingTop = `${layout.gridPadTop}px`;
+  yearCol.style.display = "grid";
+  yearCol.style.gridAutoRows = "var(--cell)";
   yearCol.style.gap = `${layout.gap}px`;
+  yearCol.style.justifyItems = "end";
+  yearCol.style.paddingTop = `${layout.gridPadTop}px`;
+  yearCol.style.paddingBottom = `${layout.gridPadBottom}px`;
   years.forEach((year) => {
     const el = document.createElement("div");
     el.className = "day-label";
@@ -759,7 +768,7 @@ function renderStats(payload, types, years, selectedType) {
   if (!stats) return;
   stats.innerHTML = "";
 
-  const color = STAT_HEAT_COLOR;
+  const color = selectedType === "all" ? STAT_HEAT_COLOR : getColors(selectedType)[4];
   const yearsDesc = years.slice().sort((a, b) => b - a);
   const yearIndex = new Map();
   yearsDesc.forEach((year, index) => {

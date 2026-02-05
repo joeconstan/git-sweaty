@@ -297,7 +297,7 @@
       .stat-matrix {
         display: inline-grid;
         grid-template-columns: 56px max-content;
-        grid-template-rows: 28px auto;
+        grid-template-rows: auto auto;
         column-gap: 8px;
         row-gap: 0;
         align-items: start;
@@ -316,28 +316,26 @@
         position: relative;
         grid-column: 2;
         grid-row: 1;
-        height: 28px;
         width: max-content;
+        display: grid;
+        align-items: end;
+        justify-items: center;
       }
 
       .month-label {
-        position: absolute;
-        top: 4px;
         color: #f1f5f9;
         white-space: nowrap;
       }
 
       .month-row.rotate-labels {
-        height: 44px;
+        min-height: 48px;
+        align-items: end;
+        justify-items: start;
       }
 
       .month-label.diagonal {
         transform: rotate(-45deg);
         transform-origin: left bottom;
-      }
-
-      .month-row.rotate-labels .month-label.diagonal {
-        top: 26px;
       }
 
       .day-col {
@@ -532,6 +530,6 @@
 
     <div id="tooltip" class="tooltip"></div>
 
-    <script src="app.js?v=11"></script>
+    <script src="app.js?v=12"></script>
   </body>
 </html>
