@@ -14,6 +14,7 @@ const yearButtons = document.getElementById("yearButtons");
 const typeSelect = document.getElementById("typeSelect");
 const yearSelect = document.getElementById("yearSelect");
 const heatmaps = document.getElementById("heatmaps");
+const stats = document.getElementById("stats");
 const tooltip = document.getElementById("tooltip");
 const summary = document.getElementById("summary");
 const updated = document.getElementById("updated");
@@ -50,6 +51,27 @@ function saturdayOnOrAfter(d) {
   return result;
 }
 
+function hexToRgb(hex) {
+  const cleaned = hex.replace("#", "");
+  if (cleaned.length !== 6) return null;
+  const r = parseInt(cleaned.slice(0, 2), 16);
+  const g = parseInt(cleaned.slice(2, 4), 16);
+  const b = parseInt(cleaned.slice(4, 6), 16);
+  if (Number.isNaN(r) || Number.isNaN(g) || Number.isNaN(b)) return null;
+  return { r, g, b };
+}
+
+function heatColor(hex, value, max) {
+  if (value <= 0 || max <= 0) return DEFAULT_COLORS[0];
+  const rgb = hexToRgb(hex);
+  if (!rgb) return hex;
+  const minAlpha = 0.2;
+  const maxAlpha = 0.95;
+  const intensity = Math.min(value / max, 1);
+  const alpha = minAlpha + (maxAlpha - minAlpha) * intensity;
+  return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`;
+}
+
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
 }
@@ -81,6 +103,33 @@ function showTooltip(text, x, y) {
 
 function hideTooltip() {
   tooltip.classList.remove("visible");
+}
+
+function attachTooltip(cell, text) {
+  if (!text) return;
+  if (!isTouch) {
+    cell.addEventListener("mouseenter", (event) => {
+      showTooltip(text, event.clientX, event.clientY);
+    });
+    cell.addEventListener("mousemove", (event) => {
+      showTooltip(text, event.clientX, event.clientY);
+    });
+    cell.addEventListener("mouseleave", hideTooltip);
+    return;
+  }
+  cell.addEventListener("pointerdown", (event) => {
+    if (event.pointerType !== "touch") return;
+    event.preventDefault();
+    if (cell.classList.contains("active")) {
+      cell.classList.remove("active");
+      hideTooltip();
+      return;
+    }
+    const active = document.querySelector(".cell.active");
+    if (active) active.classList.remove("active");
+    cell.classList.add("active");
+    showTooltip(text, event.clientX, event.clientY);
+  });
 }
 
 function getColors(type) {
@@ -120,6 +169,12 @@ function formatElevation(meters, units) {
     return `${formatNumber(Math.round(meters), 0)} m`;
   }
   return `${formatNumber(Math.round(meters * 3.28084), 0)} ft`;
+}
+
+function formatHourLabel(hour) {
+  const suffix = hour < 12 ? "a" : "p";
+  const hour12 = hour % 12 === 0 ? 12 : hour % 12;
+  return `${hour12}${suffix}`;
 }
 
 function buildSummary(payload, types, years, showTypeBreakdown, showActiveDays, hideDistanceElevation) {
@@ -455,6 +510,284 @@ function combineYearAggregates(yearData, types) {
   return result;
 }
 
+function combineAggregatesByDate(payload, types, years) {
+  const combined = {};
+  years.forEach((year) => {
+    const yearData = payload.aggregates?.[String(year)] || {};
+    types.forEach((type) => {
+      const entries = yearData?.[type] || {};
+      Object.entries(entries).forEach(([dateStr, entry]) => {
+        if (!combined[dateStr]) {
+          combined[dateStr] = {
+            count: 0,
+            distance: 0,
+            moving_time: 0,
+            elevation_gain: 0,
+          };
+        }
+        combined[dateStr].count += entry.count || 0;
+        combined[dateStr].distance += entry.distance || 0;
+        combined[dateStr].moving_time += entry.moving_time || 0;
+        combined[dateStr].elevation_gain += entry.elevation_gain || 0;
+      });
+    });
+  });
+  return combined;
+}
+
+function getFilteredActivities(payload, types, years) {
+  const activities = payload.activities || [];
+  if (!activities.length) return [];
+  const yearSet = new Set(years.map(Number));
+  const typeSet = new Set(types);
+  return activities.filter((activity) => (
+    typeSet.has(activity.type) && yearSet.has(Number(activity.year))
+  ));
+}
+
+function buildStatCard(title, subtitle) {
+  const card = document.createElement("div");
+  card.className = "card";
+  const titleEl = document.createElement("div");
+  titleEl.className = "card-title";
+  titleEl.textContent = title;
+  card.appendChild(titleEl);
+  if (subtitle) {
+    const subtitleEl = document.createElement("div");
+    subtitleEl.className = "stat-subtitle";
+    subtitleEl.textContent = subtitle;
+    card.appendChild(subtitleEl);
+  }
+  const body = document.createElement("div");
+  body.className = "stat-body";
+  card.appendChild(body);
+  return { card, body };
+}
+
+function buildHeatmapRow(labels, values, colors, tooltipFormatter, tooltipLabels) {
+  const container = document.createElement("div");
+  container.className = "stat-row";
+
+  const labelRow = document.createElement("div");
+  labelRow.className = "stat-labels";
+  labelRow.style.gridTemplateColumns = `repeat(${labels.length}, var(--cell))`;
+
+  labels.forEach((label) => {
+    const el = document.createElement("div");
+    el.className = "stat-label";
+    el.textContent = label;
+    labelRow.appendChild(el);
+  });
+
+  const grid = document.createElement("div");
+  grid.className = "stat-grid";
+  grid.style.gridTemplateColumns = `repeat(${labels.length}, var(--cell))`;
+  grid.style.gridTemplateRows = "repeat(1, var(--cell))";
+
+  const max = values.reduce((acc, value) => Math.max(acc, value), 0);
+  const tooltipNames = tooltipLabels || labels;
+  values.forEach((value, index) => {
+    const cell = document.createElement("div");
+    cell.className = "cell";
+    cell.style.background = heatColor(colors[4], value, max);
+    const tooltipText = tooltipFormatter ? tooltipFormatter(tooltipNames[index], value) : null;
+    attachTooltip(cell, tooltipText);
+    grid.appendChild(cell);
+  });
+
+  container.appendChild(labelRow);
+  container.appendChild(grid);
+  return container;
+}
+
+function buildHeatmapMatrix(monthLabels, dayLabels, matrixValues, colors) {
+  const container = document.createElement("div");
+  container.className = "stat-matrix";
+
+  const monthRow = document.createElement("div");
+  monthRow.className = "month-row";
+  monthRow.style.paddingLeft = `${getLayout().gridPadLeft}px`;
+  container.appendChild(monthRow);
+
+  monthLabels.forEach((label, index) => {
+    const x = index * (getLayout().cell + getLayout().gap);
+    const el = document.createElement("div");
+    el.className = "month-label";
+    el.textContent = label;
+    el.style.left = `${x}px`;
+    monthRow.appendChild(el);
+  });
+
+  const dayCol = document.createElement("div");
+  dayCol.className = "day-col";
+  dayCol.style.paddingTop = `${getLayout().gridPadTop}px`;
+  dayCol.style.gap = `${getLayout().gap}px`;
+  dayLabels.forEach((label) => {
+    const el = document.createElement("div");
+    el.className = "day-label";
+    el.textContent = label;
+    el.style.height = `${getLayout().cell}px`;
+    el.style.lineHeight = `${getLayout().cell}px`;
+    dayCol.appendChild(el);
+  });
+  container.appendChild(dayCol);
+
+  const grid = document.createElement("div");
+  grid.className = "stat-grid";
+  grid.style.gridTemplateColumns = `repeat(${monthLabels.length}, var(--cell))`;
+  grid.style.gridTemplateRows = `repeat(${dayLabels.length}, var(--cell))`;
+
+  const max = matrixValues.reduce(
+    (acc, row) => Math.max(acc, ...row),
+    0,
+  );
+
+  dayLabels.forEach((dayLabel, row) => {
+    monthLabels.forEach((monthLabel, col) => {
+      const value = matrixValues[row][col] || 0;
+      const cell = document.createElement("div");
+      cell.className = "cell";
+      cell.style.background = heatColor(colors[4], value, max);
+      cell.style.gridColumn = col + 1;
+      cell.style.gridRow = row + 1;
+      attachTooltip(cell, `${dayLabel} · ${monthLabel}\n${value} workout${value === 1 ? "" : "s"}`);
+      grid.appendChild(cell);
+    });
+  });
+
+  container.appendChild(grid);
+  return container;
+}
+
+function calculateStreaks(activeDates) {
+  if (!activeDates.length) {
+    return { longest: 0, latest: 0 };
+  }
+  const sorted = activeDates.slice().sort();
+  let longest = 1;
+  let current = 1;
+  for (let i = 1; i < sorted.length; i += 1) {
+    const prev = new Date(`${sorted[i - 1]}T00:00:00`);
+    const curr = new Date(`${sorted[i]}T00:00:00`);
+    const diffDays = (curr - prev) / (1000 * 60 * 60 * 24);
+    if (diffDays === 1) {
+      current += 1;
+    } else {
+      longest = Math.max(longest, current);
+      current = 1;
+    }
+  }
+  longest = Math.max(longest, current);
+  return { longest, latest: current };
+}
+
+function renderStats(payload, types, years, selectedType) {
+  if (!stats) return;
+  stats.innerHTML = "";
+
+  const colors = selectedType === "all" ? DEFAULT_COLORS : getColors(selectedType);
+  const combined = combineAggregatesByDate(payload, types, years);
+  const dayCounts = new Array(7).fill(0);
+  const monthCounts = new Array(12).fill(0);
+  const monthDayCounts = Array.from({ length: 7 }, () => Array(12).fill(0));
+  const activeDates = [];
+
+  Object.entries(combined).forEach(([dateStr, entry]) => {
+    const count = entry.count || 0;
+    if (count > 0) {
+      activeDates.push(dateStr);
+    }
+    const date = new Date(`${dateStr}T00:00:00`);
+    const dayIndex = date.getDay();
+    const monthIndex = date.getMonth();
+    dayCounts[dayIndex] += count;
+    monthCounts[monthIndex] += count;
+    monthDayCounts[dayIndex][monthIndex] += count;
+  });
+
+  const streaks = calculateStreaks(activeDates);
+  const totalWorkouts = dayCounts.reduce((acc, value) => acc + value, 0);
+  const activeDays = activeDates.length;
+  const avgPerActiveDay = activeDays > 0 ? totalWorkouts / activeDays : 0;
+
+  const bestDayIndex = dayCounts.reduce((best, value, index) => (
+    value > dayCounts[best] ? index : best
+  ), 0);
+  const bestDayLabel = `${DAYS[bestDayIndex]} (${dayCounts[bestDayIndex]} workout${dayCounts[bestDayIndex] === 1 ? "" : "s"})`;
+
+  const monthLabels = MONTHS;
+  const bestMonthIndex = monthCounts.reduce((best, value, index) => (
+    value > monthCounts[best] ? index : best
+  ), 0);
+  const bestMonthLabel = `${monthLabels[bestMonthIndex]} (${monthCounts[bestMonthIndex]} workout${monthCounts[bestMonthIndex] === 1 ? "" : "s"})`;
+
+  const dayCard = buildStatCard("Workout Frequency by Day of Week", `Most active: ${bestDayLabel}`);
+  dayCard.body.appendChild(
+    buildHeatmapRow(
+      DAYS,
+      dayCounts,
+      colors,
+      (label, value) => `${label}\n${value} workout${value === 1 ? "" : "s"}`,
+    ),
+  );
+  stats.appendChild(dayCard.card);
+
+  const hourCounts = new Array(24).fill(0);
+  const activities = getFilteredActivities(payload, types, years);
+  activities.forEach((activity) => {
+    const hour = Number(activity.hour);
+    if (Number.isFinite(hour) && hour >= 0 && hour <= 23) {
+      hourCounts[hour] += 1;
+    }
+  });
+
+  const hourLabels = hourCounts.map((_, hour) => (hour % 3 === 0 ? formatHourLabel(hour) : ""));
+  const hourTooltipLabels = hourCounts.map((_, hour) => `${formatHourLabel(hour)} (${hour}:00)`);
+  const hourBestIndex = hourCounts.reduce((best, value, index) => (
+    value > hourCounts[best] ? index : best
+  ), 0);
+  const hourSubtitle = activities.length
+    ? `Peak hour: ${formatHourLabel(hourBestIndex)} (${hourCounts[hourBestIndex]} workout${hourCounts[hourBestIndex] === 1 ? "" : "s"})`
+    : "Peak hour: not enough time data yet";
+
+  const hourCard = buildStatCard("Workout Frequency by Time of Day", hourSubtitle);
+  if (activities.length) {
+    hourCard.body.appendChild(
+      buildHeatmapRow(
+        hourLabels,
+        hourCounts,
+        colors,
+        (label, value) => `${label}\n${value} workout${value === 1 ? "" : "s"}`,
+        hourTooltipLabels,
+      ),
+    );
+  } else {
+    const fallback = document.createElement("div");
+    fallback.className = "stat-subtitle";
+    fallback.textContent = "Time-of-day stats require activity timestamps.";
+    hourCard.body.appendChild(fallback);
+  }
+  stats.appendChild(hourCard.card);
+
+  const monthCard = buildStatCard("Workout Frequency by Month", `Busiest month: ${bestMonthLabel}`);
+  monthCard.body.appendChild(
+    buildHeatmapRow(
+      monthLabels,
+      monthCounts,
+      colors,
+      (label, value) => `${label}\n${value} workout${value === 1 ? "" : "s"}`,
+    ),
+  );
+  stats.appendChild(monthCard.card);
+
+  const matrixCard = buildStatCard(
+    "Seasonality Matrix (Month × Weekday)",
+    `Longest streak: ${streaks.longest} day${streaks.longest === 1 ? "" : "s"} · Latest streak: ${streaks.latest} day${streaks.latest === 1 ? "" : "s"} · Avg per active day: ${avgPerActiveDay.toFixed(2)}`,
+  );
+  matrixCard.body.appendChild(buildHeatmapMatrix(monthLabels, DAYS, monthDayCounts, colors));
+  stats.appendChild(matrixCard.card);
+}
+
 async function init() {
   const resp = await fetch("data.json");
   const payload = await resp.json();
@@ -506,6 +839,7 @@ async function init() {
   let selectedYear = "all";
 
   function updateButtonState(container, value) {
+    if (!container) return;
     container.querySelectorAll(".filter-button").forEach((button) => {
       button.classList.toggle("active", button.dataset.value === value);
     });
@@ -521,63 +855,67 @@ async function init() {
     if (typeSelect) typeSelect.value = selectedType;
     if (yearSelect) yearSelect.value = selectedYear;
 
-    heatmaps.innerHTML = "";
-    if (selectedType === "all") {
-      const section = document.createElement("div");
-      section.className = "type-section";
-      const header = document.createElement("div");
-      header.className = "type-header";
-      header.textContent = "All Workouts";
-      section.appendChild(header);
-
-      const list = document.createElement("div");
-      list.className = "type-list";
-      years.forEach((year) => {
-        const yearData = payload.aggregates?.[String(year)] || {};
-        const aggregates = combineYearAggregates(yearData, types);
-        const colorForEntry = (entry) => {
-          if (!entry.types || entry.types.length === 0) {
-            return DEFAULT_COLORS[0];
-          }
-          if (entry.types.length === 1) {
-            return getColors(entry.types[0])[4];
-          }
-          return MULTI_TYPE_COLOR;
-        };
-        const card = buildCard(
-          "all",
-          year,
-          aggregates,
-          payload.units || { distance: "mi", elevation: "ft" },
-          { colorForEntry },
-        );
-        list.appendChild(card);
-      });
-      section.appendChild(list);
-      heatmaps.appendChild(section);
-    } else {
-      types.forEach((type) => {
+    if (heatmaps) {
+      heatmaps.innerHTML = "";
+      if (selectedType === "all") {
         const section = document.createElement("div");
         section.className = "type-section";
         const header = document.createElement("div");
         header.className = "type-header";
-        header.textContent = displayType(type);
+        header.textContent = "All Workouts";
         section.appendChild(header);
 
         const list = document.createElement("div");
         list.className = "type-list";
         years.forEach((year) => {
-          const aggregates = payload.aggregates?.[String(year)]?.[type] || {};
-          const card = buildCard(type, year, aggregates, payload.units || { distance: "mi", elevation: "ft" });
+          const yearData = payload.aggregates?.[String(year)] || {};
+          const aggregates = combineYearAggregates(yearData, types);
+          const colorForEntry = (entry) => {
+            if (!entry.types || entry.types.length === 0) {
+              return DEFAULT_COLORS[0];
+            }
+            if (entry.types.length === 1) {
+              return getColors(entry.types[0])[4];
+            }
+            return MULTI_TYPE_COLOR;
+          };
+          const card = buildCard(
+            "all",
+            year,
+            aggregates,
+            payload.units || { distance: "mi", elevation: "ft" },
+            { colorForEntry },
+          );
           list.appendChild(card);
         });
-        if (!list.childElementCount) {
-          return;
-        }
         section.appendChild(list);
         heatmaps.appendChild(section);
-      });
+      } else {
+        types.forEach((type) => {
+          const section = document.createElement("div");
+          section.className = "type-section";
+          const header = document.createElement("div");
+          header.className = "type-header";
+          header.textContent = displayType(type);
+          section.appendChild(header);
+
+          const list = document.createElement("div");
+          list.className = "type-list";
+          years.forEach((year) => {
+            const aggregates = payload.aggregates?.[String(year)]?.[type] || {};
+            const card = buildCard(type, year, aggregates, payload.units || { distance: "mi", elevation: "ft" });
+            list.appendChild(card);
+          });
+          if (!list.childElementCount) {
+            return;
+          }
+          section.appendChild(list);
+          heatmaps.appendChild(section);
+        });
+      }
     }
+
+    renderStats(payload, types, years, selectedType);
 
     const showTypeBreakdown = selectedType === "all";
     const showActiveDays = selectedType === "all" && selectedYear === "all";

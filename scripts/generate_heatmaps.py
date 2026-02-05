@@ -1,6 +1,6 @@
 import argparse
 import os
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from typing import Dict, List
 
 from utils import (
@@ -15,6 +15,7 @@ from utils import (
 )
 
 AGG_PATH = os.path.join("data", "daily_aggregates.json")
+ACTIVITIES_PATH = os.path.join("data", "activities_normalized.json")
 README_PATH = "README.md"
 SITE_DATA_PATH = os.path.join("site", "data.json")
 
@@ -76,6 +77,55 @@ def _build_title(date_str: str, entry: Dict, units: Dict[str, str]) -> str:
         f"Duration: {duration}\n"
         f"Elevation: {elevation}"
     )
+
+
+def _parse_hour(value: str) -> int:
+    if not value:
+        raise ValueError("Missing datetime")
+    if value.endswith("Z"):
+        value = value[:-1] + "+00:00"
+    try:
+        dt = datetime.fromisoformat(value)
+    except ValueError:
+        if "." in value:
+            base, rest = value.split(".", 1)
+            if "+" in rest:
+                tz = "+" + rest.split("+", 1)[1]
+            elif "-" in rest:
+                tz = "-" + rest.split("-", 1)[1]
+            else:
+                tz = ""
+            dt = datetime.fromisoformat(base + tz)
+        else:
+            raise
+    return dt.hour
+
+
+def _load_activities() -> List[Dict]:
+    if not os.path.exists(ACTIVITIES_PATH):
+        return []
+    items = read_json(ACTIVITIES_PATH) or []
+    activities: List[Dict] = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        date_str = item.get("date")
+        year = item.get("year")
+        activity_type = item.get("type")
+        start_date_local = item.get("start_date_local")
+        if not date_str or year is None or not activity_type or not start_date_local:
+            continue
+        try:
+            hour = _parse_hour(start_date_local)
+        except Exception:
+            continue
+        activities.append({
+            "date": date_str,
+            "year": int(year),
+            "type": activity_type,
+            "hour": hour,
+        })
+    return activities
 
 
 def _svg_for_year(
@@ -246,6 +296,7 @@ def generate():
         "types": types,
         "aggregates": aggregates.get("years", {}),
         "units": units,
+        "activities": _load_activities(),
     }
     _write_site_data(site_payload)
 
