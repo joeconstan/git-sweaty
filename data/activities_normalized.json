@@ -12500,6 +12500,16 @@
     "year": 2026
   },
   {
+    "date": "2026-01-29",
+    "distance": 3917.8,
+    "elevation_gain": 28.0,
+    "id": 17222519573,
+    "moving_time": 1744.0,
+    "start_date_local": "2026-01-29T15:33:44Z",
+    "type": "Run",
+    "year": 2026
+  },
+  {
     "date": "2026-02-01",
     "distance": 0.0,
     "elevation_gain": 0.0,
@@ -12516,6 +12526,16 @@
     "id": 17271698806,
     "moving_time": 1986.0,
     "start_date_local": "2026-02-03T07:41:45Z",
+    "type": "Run",
+    "year": 2026
+  },
+  {
+    "date": "2026-02-03",
+    "distance": 3460.0,
+    "elevation_gain": 42.0,
+    "id": 17278432581,
+    "moving_time": 1607.0,
+    "start_date_local": "2026-02-03T16:08:14Z",
     "type": "Run",
     "year": 2026
   },
